@@ -38,8 +38,8 @@
       --text-0: var(--ctp-mocha-subtext0);
       --text-1: var(--ctp-mocha-subtext1);
       --text-2: var(--ctp-mocha-text);
-      --ac-0: var(--ctp-mocha-sapphire);
-      --ac-1: var(--ctp-mocha-red);
+      --ac-0: #8178EE;
+      --ac-1: var(--ctp-mocha-lavender);
     }
   }
 
