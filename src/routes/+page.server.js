@@ -19,4 +19,4 @@ const hello = [
 
 export const load = async () => {
   return { hello: hello[Math.floor(Math.random() * hello.length)] };
-}
+};

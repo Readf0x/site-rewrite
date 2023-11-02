@@ -3,20 +3,23 @@
   import Navbar from "./Navbar.svelte";
 </script>
 
-<Navbar/>
-<slot/>
+<Navbar />
+<slot />
 
 <svelte:head>
-  <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap"
+    rel="stylesheet"
+  />
 </svelte:head>
 
 <style lang="scss" global>
   :root {
-    --font: "VT323", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font: "VT323", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     --font-code: "Fira Code", "Menlo", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
     font-family: var(--font);
     color: var(--tx-2);
