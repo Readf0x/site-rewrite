@@ -49,7 +49,7 @@
     &.top {
       background: none;
       &::after {
-        background: none;
+        opacity: 0;
       }
     }
     &::after {
@@ -59,7 +59,7 @@
       position: absolute;
       top: 50px;
       background: linear-gradient(to bottom, var(--bg-0), transparent);
-      transition: 10s;
+      transition: 0.4s;
     }
     .left,
     .right {
