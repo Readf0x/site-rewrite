@@ -18,23 +18,21 @@
   });
 </script>
 
-<template>
-  <nav class="navbar top">
-    <div class="left">
-      <a href="/" data-content="Davis Forsythe">Davis Forsythe</a>
-    </div>
-    <div class="right">
-      <a href="/about" data-content="About">About</a>
-      <a href="/projects" data-content="Projects">Projects</a>
-      <a href="https://github.com/readf0x" class="icon">
-        {@html github}
-      </a>
-      <a href="https://discord.com" class="icon">
-        {@html discord}
-      </a>
-    </div>
-  </nav>
-</template>
+<nav class="navbar top">
+  <div class="left">
+    <a href="/" data-content="Davis Forsythe">Davis Forsythe</a>
+  </div>
+  <div class="right">
+    <a href="/about" data-content="About">About</a>
+    <a href="/projects" data-content="Projects">Projects</a>
+    <a href="https://github.com/readf0x" class="icon">
+      {@html github}
+    </a>
+    <a href="https://discord.com" class="icon">
+      {@html discord}
+    </a>
+  </div>
+</nav>
 
 <style lang="scss">
   .navbar {
