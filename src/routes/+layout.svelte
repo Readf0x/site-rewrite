@@ -14,14 +14,16 @@
 </svelte:head>
 
 <style lang="scss" global>
-  @use "sass:map";
-
   :root {
     --font: "VT323", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
       Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     --font-code: "Fira Code", "Menlo", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
     font-family: var(--font);
     color: var(--text-2);
+  }
+
+  ::selection {
+    background: var(--ac-0);
   }
 
   @media (prefers-color-scheme: dark) {
