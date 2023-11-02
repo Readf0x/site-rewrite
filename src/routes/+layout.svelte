@@ -42,6 +42,7 @@
       --tx-2: rgb(var(--tx-2-raw));
       --ac-0: rgb(var(--ac-0-raw));
       --ac-1: rgb(var(--ac-1-raw));
+      --ac-2: rgb(var(--ac-2-raw));
 
       --bg-0-raw: var(--ctp-mocha-crust-raw);
       --bg-1-raw: var(--ctp-mocha-mantle-raw);
@@ -57,6 +58,7 @@
       --tx-2-raw: var(--ctp-mocha-text-raw);
       --ac-0-raw: 129, 120, 238;
       --ac-1-raw: var(--ctp-mocha-lavender-raw);
+      --ac-2-raw: var(--ctp-mocha-mauve-raw);
     }
   }
 
@@ -76,6 +78,7 @@
       --tx-2: rgb(var(--tx-2-raw));
       --ac-0: rgb(var(--ac-0-raw));
       --ac-1: rgb(var(--ac-1-raw));
+      --ac-2: rgb(var(--ac-2-raw));
 
       --bg-0-raw: var(--ctp-latte-crust-raw);
       --bg-1-raw: var(--ctp-latte-mantle-raw);
@@ -91,6 +94,7 @@
       --tx-2-raw: var(--ctp-latte-text-raw);
       --ac-0-raw: 129, 120, 238;
       --ac-1-raw: var(--ctp-latte-lavender-raw);
+      --ac-2-raw: var(--ctp-latte-mauve-raw);
     }
   }
 

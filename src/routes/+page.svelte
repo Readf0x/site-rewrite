@@ -20,7 +20,7 @@
 <style lang="scss">
   .placeholder {
     font-size: 30px;
-    width: 66vw;
+    width: 50vw;
     margin: auto;
     margin-top: 1vw;
   }

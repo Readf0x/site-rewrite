@@ -13,19 +13,19 @@
   }
   
   onMount(() => {
-    scroll();
     window.onscroll = scroll;
+    scroll();
   });
 </script>
 
 <template>
   <nav class="navbar top">
     <div class="left">
-      <a href="/">DAVIS FORSYTHE</a>
+      <a href="/" data-content="Davis Forsythe">Davis Forsythe</a>
     </div>
     <div class="right">
-      <a href="/about">ABOUT</a>
-      <a href="/projects">PROJECTS</a>
+      <a href="/about" data-content="About">About</a>
+      <a href="/projects" data-content="Projects">Projects</a>
       <a href="https://github.com/readf0x" class="icon">
         {@html github}
       </a>
@@ -44,7 +44,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--bg-2);
+    background: var(--bg-1);
     transition: 0.4s;
     &.top {
       background: none;
@@ -58,7 +58,7 @@
       height: 8px;
       position: absolute;
       top: 50px;
-      background: linear-gradient(to bottom, var(--bg-0), transparent);
+      // background: linear-gradient(to bottom, var(--bg-0), transparent);
       transition: 0.4s;
     }
     .left,
@@ -75,11 +75,20 @@
       color: var(--tx-2);
       font-size: 25px;
       text-shadow: 0 0 4px var(--tx-2);
+      transition: 0.4s;
+      text-transform: uppercase;
+      &:hover {
+        color: var(--ac-1);
+        text-shadow: 0 0 4px var(--ac-1);
+      }
       &.icon {
         display: flex;
         height: fit-content;
         width: fit-content;
         padding: 0;
+        &:hover {
+          --tx-2: var(--ac-1);
+        }
       }
     }
   }
