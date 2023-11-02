@@ -19,7 +19,7 @@
     window.onscroll = scroll;
     scroll();
     document.addEventListener("keydown", (ev) => {
-      if (ev.ctrlKey && ev.key == "k") {
+      if ((ev.ctrlKey && ev.key == "k") || ev.key == "/") {
         ev.preventDefault();
         searchElem.focus();
       }
