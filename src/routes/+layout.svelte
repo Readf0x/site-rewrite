@@ -23,7 +23,7 @@
   }
 
   ::selection {
-    background: var(--ac-0);
+    background: var(--ac-0) !important;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -59,7 +59,7 @@
       --text-0: var(--ctp-latte-subtext0);
       --text-1: var(--ctp-latte-subtext1);
       --text-2: var(--ctp-latte-text);
-      --ac-0: var(--ctp-latte-sapphire);
+      --ac-0: #8178EE;
       --ac-1: var(--ctp-latte-red);
     }
   }
