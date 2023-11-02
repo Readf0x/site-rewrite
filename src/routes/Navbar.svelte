@@ -72,9 +72,9 @@
     }
     a {
       text-decoration: none;
-      color: var(--text-2);
+      color: var(--tx-2);
       font-size: 25px;
-      text-shadow: 0 0 4px var(--text-2);
+      text-shadow: 0 0 4px var(--tx-2);
       &.icon {
         display: flex;
         height: fit-content;

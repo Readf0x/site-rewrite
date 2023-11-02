@@ -8,7 +8,7 @@
 <template>
   <div class="header">
     <p class="name">Davis<br>Forsythe</p>
-    <img src="{photo}" alt="Big art" class="photo" draggable="false">
+    <img src="{photo}" alt="Big art" class="photo">
     <div class="side">
       <p class="big">Lorem ipsum dolor sit amet,</p>
       <p class="small">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet volutpat consequat mauris nunc.</p>
@@ -31,8 +31,8 @@
     width: 100%;
     background: radial-gradient(
       circle at 7vw 7vw,
-      rgba(129, 120, 238, 0.3) 0%,
-      rgba(129, 120, 238, 0) 30%
+      rgba(var(--ac-0-raw), 0.3) 0%,
+      rgba(var(--ac-0-raw), 0) 30%
     ),
     var(--bg-0);
     p {
@@ -47,7 +47,7 @@
       z-index: 2;
       margin: 0;
       font-size: 10vw;
-      text-shadow: 0 0 0.5vw var(--text-0);
+      text-shadow: 0 0 0.5vw var(--tx-0);
     }
     .photo {
       width: 38vw;
@@ -60,7 +60,7 @@
       margin: auto;
       padding-right: 5vw;
       display: block;
-      filter: drop-shadow(0 0 20px rgba(129, 120, 238, 0.2));
+      filter: drop-shadow(0 0 20px rgba(var(--ac-0-raw), 0.2));
     }
     .side {
       position: absolute;
@@ -70,12 +70,12 @@
       .big {
         width: 33vw;
         font-size: 4.5vw;
-        text-shadow: 0px 0px 6px var(--text-0);
+        text-shadow: 0px 0px 6px var(--tx-0);
       }
       .small {
         width: 33vw;
         font-size: 2.25vw;
-        text-shadow: 0px 0px 4px var(--text-0);
+        text-shadow: 0px 0px 4px var(--tx-0);
         margin-top: 1.5vw;
         margin-left: 4vw;
       }
