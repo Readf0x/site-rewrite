@@ -8,7 +8,7 @@
   let searchElem: HTMLInputElement;
 
   function scroll() {
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       document.querySelector(".navbar")?.classList.remove("top");
     } else {
       document.querySelector(".navbar")?.classList.add("top");
