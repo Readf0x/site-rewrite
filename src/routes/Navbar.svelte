@@ -48,18 +48,6 @@
     transition: 0.4s;
     &.top {
       background: none;
-      &::after {
-        opacity: 0;
-      }
-    }
-    &::after {
-      content: "";
-      width: 100%;
-      height: 8px;
-      position: absolute;
-      top: 50px;
-      // background: linear-gradient(to bottom, var(--bg-0), transparent);
-      transition: 0.4s;
     }
     .left,
     .right {
