@@ -83,9 +83,6 @@
     </svg>
   </div>
   <div class="right">
-    <div class="search-icon-small">
-      {@html search}
-    </div>
     <a href="/about">About Me</a>
     <a href="/projects">Projects</a>
     <a href="https://github.com/readf0x" class="icon">
@@ -95,9 +92,9 @@
       on:click={() => alert("Discord has not implemented profile links, DM me @readf0x")} class="icon">
       {@html discord}
     </button>
-  </div>
-  <div class="mobile-menu">
-    <span>M</span>
+    <div class="search-icon-small">
+      {@html search}
+    </div>
   </div>
 </nav>
 
@@ -213,7 +210,6 @@
       transition: 0.4s;
     }
     a,
-    span,
     button {
       text-decoration: none;
       color: var(--tx-2);
@@ -241,10 +237,6 @@
       display: none;
       filter: drop-shadow(0 0 4px var(--tx-2));
     }
-    .mobile-menu {
-      display: none;
-      margin-right: 10px;
-    }
   }
 
   @media (max-width: 1150px) {
@@ -266,15 +258,6 @@
       display: none !important;
     }
     .search-icon-small {
-      display: unset !important;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .right {
-      display: none !important;
-    }
-    .mobile-menu {
       display: unset !important;
     }
   }
