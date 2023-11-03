@@ -49,7 +49,6 @@
     >
       <path
         d="M2.71391 5.71523L5 0V30L2.71391 24.2848C0.329798 18.3245 0.329799 11.6755 2.71391 5.71523Z"
-        fill="#313244"
       />
     </svg>
     <div class="search-icon">
@@ -76,7 +75,6 @@
     >
       <path
         d="M2.28609 5.71523L0 5.72205e-06V30L2.28609 24.2848C4.6702 18.3245 4.6702 11.6755 2.28609 5.71523Z"
-        fill="#313244"
       />
     </svg>
   </div>
@@ -134,6 +132,13 @@
       transition: 0.4s;
       &:has(input:focus) {
         filter: drop-shadow(0 0 10px rgba(var(--ac-0-raw), 0.5));
+      }
+      svg {
+        &:last-of-type, &:first-of-type {
+          path {
+            fill: var(--sf-0);
+          }
+        }
       }
       .search-input {
         border: none;
