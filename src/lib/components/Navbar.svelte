@@ -254,11 +254,13 @@
   }
 
   @media (max-width: 700px) {
-    .search {
-      display: none !important;
-    }
-    .search-icon-small {
-      display: unset !important;
+    .navbar {
+      .search {
+        display: none;
+      }
+      .search-icon-small {
+        display: unset;
+      }
     }
   }
 </style>
