@@ -9,10 +9,10 @@
   <p class="name">Davis<br />Forsythe</p>
   <img src={photo} alt="Big art" class="photo" />
   <div class="side">
-    <p class="big">Lorem ipsum dolor sit amet,</p>
+    <p class="big">Aspiring software developer</p>
     <p class="small">
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Amet volutpat consequat mauris nunc.
+      <span title={hello[1]}>{hello[0]}</span>! I’m a prospective comp<br />sci student who
+      currently has web development experience.
     </p>
   </div>
 </div>
@@ -107,6 +107,7 @@
       z-index: 1;
       user-select: none;
       pointer-events: none;
+      position: relative;
       margin: auto;
       display: block;
       filter: drop-shadow(0 0 20px rgba(var(--ac-0-raw), 0.2));

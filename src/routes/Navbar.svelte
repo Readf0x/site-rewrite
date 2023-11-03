@@ -118,7 +118,10 @@
       display: flex;
       height: fit-content;
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       margin: auto;
       // width: 100%;
       flex-grow: 1;
