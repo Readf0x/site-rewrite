@@ -2,8 +2,6 @@
   import { onDestroy, onMount } from "svelte";
   import { modal } from "../../stores";
 
-  let modalWrapper: HTMLElement;
-
   function keyHandler(ev: KeyboardEvent) {
     if(ev.key == "Escape") {
       ev.preventDefault();
@@ -17,7 +15,7 @@
 </script>
 
 {#if $modal}
-  <div class="modal-wrapper" bind:this={modalWrapper}>
+  <div class="modal-wrapper">
     <div class="modal">
       <div class="modal-slot">{@html $modal}</div>
       <button on:click={() => $modal = ""} id="close">Close</button>
