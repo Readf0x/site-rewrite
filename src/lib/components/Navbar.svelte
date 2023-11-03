@@ -81,6 +81,9 @@
     </svg>
   </div>
   <div class="right">
+    <div class="search-icon-small">
+      {@html search}
+    </div>
     <a href="/about" data-content="About">About</a>
     <a href="/projects" data-content="Projects">Projects</a>
     <a href="https://github.com/readf0x" class="icon">
@@ -89,6 +92,9 @@
     <a href="https://discord.com" class="icon">
       {@html discord}
     </a>
+  </div>
+  <div class="mobile-menu">
+    <span>M</span>
   </div>
 </nav>
 
@@ -165,7 +171,7 @@
         }
       }
     }
-    a {
+    a, span {
       text-decoration: none;
       color: var(--tx-2);
       font-size: 25px;
@@ -181,10 +187,20 @@
         height: fit-content;
         width: fit-content;
         padding: 0;
+        filter: drop-shadow(0 0 4px var(--tx-2));
         &:hover {
-          --tx-2: var(--ac-1);
+          color: var(--ac-1);
+          text-shadow: 0 0 4px var(--ac-1);
         }
       }
+    }
+    .search-icon-small {
+      display: none;
+      filter: drop-shadow(0 0 4px var(--tx-2));
+    }
+    .mobile-menu {
+      display: none;
+      margin-right: 10px;
     }
   }
 
@@ -197,6 +213,24 @@
   @media (max-width: 800px) {
     .right .icon {
       display: none !important;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .search {
+      display: none !important;
+    }
+    .search-icon-small {
+      display: unset !important;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .right {
+      display: none !important;
+    }
+    .mobile-menu {
+      display: unset !important;
     }
   }
 </style>
