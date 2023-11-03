@@ -133,49 +133,50 @@
       &:has(input:focus) {
         filter: drop-shadow(0 0 10px rgba(var(--ac-0-raw), 0.5));
       }
-      svg:last-of-type, svg:first-of-type {
-          path {
-            fill: var(--sf-0);
-          }
-        }
-      }
-      .search-input {
-        border: none;
-        outline: none;
-        background: var(--sf-0);
-        color: inherit;
-        height: 30px;
-        box-sizing: border-box;
-        font: inherit;
-        font-size: 25px;
-        flex-grow: 1;
-        &::placeholder {
-          color: var(--tx-2);
-        }
-      }
-      .search-icon {
-        background: var(--sf-0);
-        display: flex;
-        height: 30px;
-        align-items: center;
-        padding: 0 5px;
-      }
-      .search-shortcut {
-        background: var(--sf-0);
-        display: flex;
-        height: 30px;
-        align-items: center;
-        gap: 2px;
-        padding-right: 5px;
-        code {
-          padding: 2px;
-          background: var(--bg-2);
-          border: 1px solid var(--ov-0);
-          border-radius: 3px;
+      svg:last-of-type,
+      svg:first-of-type {
+        path {
+          fill: var(--sf-0);
         }
       }
     }
-    a, span {
+    .search-input {
+      border: none;
+      outline: none;
+      background: var(--sf-0);
+      color: inherit;
+      height: 30px;
+      box-sizing: border-box;
+      font: inherit;
+      font-size: 25px;
+      flex-grow: 1;
+      &::placeholder {
+        color: var(--tx-2);
+      }
+    }
+    .search-icon {
+      background: var(--sf-0);
+      display: flex;
+      height: 30px;
+      align-items: center;
+      padding: 0 5px;
+    }
+    .search-shortcut {
+      background: var(--sf-0);
+      display: flex;
+      height: 30px;
+      align-items: center;
+      gap: 2px;
+      padding-right: 5px;
+      code {
+        padding: 2px;
+        background: var(--bg-2);
+        border: 1px solid var(--ov-0);
+        border-radius: 3px;
+      }
+    }
+    a,
+    span {
       text-decoration: none;
       color: var(--tx-2);
       font-size: 25px;

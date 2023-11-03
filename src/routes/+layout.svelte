@@ -26,7 +26,13 @@
     font-variant-ligatures: none;
   }
 
-  h1, h2, h3, h4, h5, h6, b {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  b {
     font-weight: 400 !important;
   }
 
