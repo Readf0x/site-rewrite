@@ -123,7 +123,6 @@
       bottom: 0;
       left: 0;
       margin: auto;
-      // width: 100%;
       flex-grow: 1;
       max-width: 600px;
       transition: 0.4s;

@@ -1,6 +1,6 @@
 <script>
   import "@catppuccin/palette/style";
-  import Navbar from "./Navbar.svelte";
+  import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
 <Navbar />
