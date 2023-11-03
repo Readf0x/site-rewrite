@@ -97,12 +97,9 @@
     >
       {@html discord}
     </button>
-    <div class="search-icon-small">
-      {@html search}
-    </div>
   </div>
   <button class="borgir-menu">
-    {@html menu}
+    <div class="menu-icon">{@html menu}</div>
   </button>
 </nav>
 
@@ -126,6 +123,15 @@
       padding: 0 18px;
       align-items: center;
       gap: 20px;
+    }
+    @media (max-width: 700px) {
+      height: 15vw;
+      .left {
+        height: 15vw;
+      }
+      .right {
+        display: none;
+      }
     }
     .search {
       gap: 0;
@@ -162,6 +168,12 @@
         path {
           fill: var(--sf-0);
         }
+      }
+      @media (max-width: 1300px) {
+        position: relative;
+      }
+      @media (max-width: 700px) {
+        display: none;
       }
     }
     .search-input {
@@ -224,6 +236,12 @@
         color: var(--ac-1);
         text-shadow: 0 0 4px var(--ac-1);
       }
+      @media (max-width: 700px) {
+        font-size: 7vw;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
     }
     .icon {
       display: flex;
@@ -235,10 +253,9 @@
         color: var(--ac-1);
         filter: drop-shadow(0 0 2px var(--ac-1));
       }
-    }
-    .search-icon-small {
-      display: none;
-      filter: drop-shadow(0 0 4px var(--tx-2));
+      @media (max-width: 800px) {
+        display: none;
+      }
     }
     .borgir-menu {
       display: none;
@@ -248,40 +265,10 @@
         color: var(--ac-1);
         filter: drop-shadow(0 0 4px var(--ac-1));
       }
-    }
-  }
-
-  @media (max-width: 1150px) {
-    .navbar .search {
-      position: relative;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .navbar {
-      .right .icon {
-        display: none;
+      .menu-icon {
+        width: 7vw; height: 7vw;
       }
-    }
-  }
-
-  @media (max-width: 700px) {
-    .navbar {
-      .search {
-        display: none;
-      }
-      .search-icon-small {
-        display: unset;
-      }
-    }
-  }
-
-  @media (max-width: 500px) {
-    .navbar {
-      .right {
-        display: none;
-      }
-      .borgir-menu {
+      @media (max-width: 700px) {
         display: flex;
       }
     }
