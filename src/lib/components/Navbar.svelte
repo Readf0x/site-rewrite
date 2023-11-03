@@ -2,7 +2,10 @@
   import github from "$lib/icons/github.svg?raw";
   import discord from "$lib/icons/discord.svg?raw";
   import search from "$lib/icons/search.svg?raw";
-  import { onMount, createEventDispatcher } from "svelte";
+  import menu from "$lib/icons/menu.svg?raw";
+  import { onMount } from "svelte";
+  import { modal } from "../../stores";
+  import { page } from "$app/stores";
 
   let searchText: string;
   let searchElem: HTMLInputElement;
@@ -14,7 +17,6 @@
       document.querySelector(".navbar")?.classList.add("top");
     }
   }
-  const dispatch = createEventDispatcher();
 
   onMount(() => {
     window.onscroll = scroll;
@@ -89,13 +91,16 @@
       {@html github}
     </a>
     <button
-      on:click={() => alert("Discord has not implemented profile links, DM me @readf0x")} class="icon">
+      on:click={() => $modal = `<p>Discord has not implemented profile links, DM me <code>@readf0x</code></p>`} class="icon">
       {@html discord}
     </button>
     <div class="search-icon-small">
       {@html search}
     </div>
   </div>
+  <button class="borgir-menu">
+    {@html menu}
+  </button>
 </nav>
 
 <style lang="scss">
@@ -115,7 +120,7 @@
     .right {
       display: flex;
       height: 50px;
-      padding: 0px 18px;
+      padding: 0 18px;
       align-items: center;
       gap: 20px;
     }
@@ -192,12 +197,6 @@
       user-select: none;
       pointer-events: none;
       transition: 0.4s;
-      code {
-        padding: 2px;
-        background: var(--sf-1);
-        border: 1px solid var(--ov-0);
-        border-radius: 3px;
-      }
     }
     .search-submit {
       background: var(--sf-0);
@@ -237,6 +236,15 @@
       display: none;
       filter: drop-shadow(0 0 4px var(--tx-2));
     }
+    .borgir-menu {
+      display: none;
+      filter: drop-shadow(0 0 4px var(--tx-2));
+      padding: 0 18px;
+      &:hover {
+        color: var(--ac-1);
+        filter: drop-shadow(0 0 4px var(--ac-1));
+      }
+    }
   }
 
   @media (max-width: 1150px) {
@@ -260,6 +268,17 @@
       }
       .search-icon-small {
         display: unset;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .navbar {
+      .right {
+        display: none;
+      }
+      .borgir-menu {
+        display: flex;
       }
     }
   }

@@ -1,8 +1,10 @@
 <script>
   import "@catppuccin/palette/style";
   import Navbar from "$lib/components/Navbar.svelte";
+  import Modal from "$lib/components/Modal.svelte";
 </script>
 
+<Modal />
 <Navbar />
 <slot />
 
@@ -34,6 +36,19 @@
   h6,
   b {
     font-weight: 400 !important;
+  }
+
+  code {
+    padding: 1px 2px;
+    background: var(--sf-1);
+    border: 1px solid var(--ov-0);
+    border-radius: 3px;
+    font-family: var(--font-code);
+    font-size: 0.75em;
+  }
+  p code {
+    position: relative;
+    bottom: 1px;
   }
 
   ::selection {
