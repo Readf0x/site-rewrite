@@ -9,5 +9,5 @@ const fullReloadAlways = {
 };
 
 export default defineConfig({
-  plugins: [sveltekit(), fullReloadAlways]
+  plugins: [sveltekit()]
 });

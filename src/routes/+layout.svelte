@@ -23,6 +23,11 @@
     --font-code: "Fira Code", "Menlo", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
     font-family: var(--font);
     color: var(--tx-2);
+    font-variant-ligatures: none;
+  }
+
+  h1, h2, h3, h4, h5, h6, b {
+    font-weight: 400 !important;
   }
 
   ::selection {
