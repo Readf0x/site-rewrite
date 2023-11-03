@@ -10,8 +10,6 @@
   }
 
   onMount(() => document.addEventListener("keydown", keyHandler));
-
-  onDestroy(() => document.removeEventListener("keydown", keyHandler));
 </script>
 
 {#if $modal}
