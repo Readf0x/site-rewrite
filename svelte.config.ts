@@ -1,8 +1,8 @@
 import preprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-auto";
+import type { Config } from "@sveltejs/kit";
 
-/** @type {import("@sveltejs/kit").Config} */
-const config = {
+const config: Config = {
   preprocess: preprocess(),
   kit: {
     // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
