@@ -10,7 +10,7 @@
   <div class="side">
     <p class="big">Aspiring software developer</p>
     <p class="small">
-      <span title={hello[1]}>{hello[0]}</span>! I’m a prospective comp<br />sci student who
+      <span title={hello[1]}>{hello[0]}</span>! I’m a prospective comp <br />sci student who
       currently has web development experience.
     </p>
   </div>
@@ -71,6 +71,19 @@
         text-shadow: 0px 0px 4px var(--tx-0);
         margin-top: 1.5vw;
         margin-left: 4vw;
+      }
+    }
+    @media (max-width: 1000px) {
+      .side {
+        right: 2vw;
+        .small {
+          font-size: 3vw;
+          width: 34vw;
+          margin-left: 6vw;
+          br {
+            display: none;
+          }
+        }
       }
     }
   }

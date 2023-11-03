@@ -38,6 +38,7 @@
 
   ::selection {
     background: rgba(var(--ac-0-raw), 0.75) !important;
+    text-shadow: none !important;
   }
 
   @media (prefers-color-scheme: dark) {

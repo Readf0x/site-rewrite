@@ -2,7 +2,7 @@
   import github from "$lib/icons/github.svg?raw";
   import discord from "$lib/icons/discord.svg?raw";
   import search from "$lib/icons/search.svg?raw";
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
 
   let searchText: string;
   let searchElem: HTMLInputElement;
@@ -14,6 +14,7 @@
       document.querySelector(".navbar")?.classList.add("top");
     }
   }
+  const dispatch = createEventDispatcher();
 
   onMount(() => {
     window.onscroll = scroll;
@@ -65,6 +66,9 @@
     <div class="search-shortcut">
       <code>ctrl</code><code>k</code>
     </div>
+    <button class="search-submit">
+      {@html search}
+    </button>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="5"
@@ -82,14 +86,15 @@
     <div class="search-icon-small">
       {@html search}
     </div>
-    <a href="/about" data-content="About">About</a>
-    <a href="/projects" data-content="Projects">Projects</a>
+    <a href="/about">About Me</a>
+    <a href="/projects">Projects</a>
     <a href="https://github.com/readf0x" class="icon">
       {@html github}
     </a>
-    <a href="https://discord.com" class="icon">
+    <button
+      on:click={() => alert("Discord has not implemented profile links, DM me @readf0x")} class="icon">
       {@html discord}
-    </a>
+    </button>
   </div>
   <div class="mobile-menu">
     <span>M</span>
@@ -133,6 +138,19 @@
       &:has(input:focus) {
         filter: drop-shadow(0 0 10px rgba(var(--ac-0-raw), 0.5));
       }
+      &:has(input:focus, input:not(:placeholder-shown)) {
+        .search-icon, .search-shortcut {
+          opacity: 0;
+          pointer-events: none;
+        }
+        .search-input {
+          padding-left: 10px;
+        }
+        .search-submit {
+          display: flex;
+          opacity: 1;
+        }
+      }
       svg:last-of-type,
       svg:first-of-type {
         path {
@@ -150,33 +168,53 @@
       font: inherit;
       font-size: 25px;
       flex-grow: 1;
+      padding-left: 32px;
+      transition: 0.4s;
       &::placeholder {
         color: var(--tx-2);
+        user-select: none;
       }
     }
     .search-icon {
-      background: var(--sf-0);
+      position: absolute;
+      left: 5px;
       display: flex;
       height: 30px;
       align-items: center;
       padding: 0 5px;
+      transition: 0.4s;
+      pointer-events: none;
     }
     .search-shortcut {
-      background: var(--sf-0);
+      position: absolute;
+      right: 10px;
       display: flex;
       height: 30px;
       align-items: center;
       gap: 2px;
-      padding-right: 5px;
+      user-select: none;
+      pointer-events: none;
+      transition: 0.4s;
       code {
         padding: 2px;
-        background: var(--bg-2);
+        background: var(--sf-1);
         border: 1px solid var(--ov-0);
         border-radius: 3px;
       }
     }
+    .search-submit {
+      background: var(--sf-0);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      display: none;
+      opacity: 0;
+      transition: 0.4s;
+    }
     a,
-    span {
+    span,
+    button {
       text-decoration: none;
       color: var(--tx-2);
       font-size: 25px;
@@ -187,16 +225,16 @@
         color: var(--ac-1);
         text-shadow: 0 0 4px var(--ac-1);
       }
-      &.icon {
-        display: flex;
-        height: fit-content;
-        width: fit-content;
-        padding: 0;
-        filter: drop-shadow(0 0 4px var(--tx-2));
-        &:hover {
-          color: var(--ac-1);
-          filter: drop-shadow(0 0 4px var(--ac-1));
-        }
+    }
+    .icon {
+      display: flex;
+      height: fit-content;
+      width: fit-content;
+      padding: 0;
+      filter: drop-shadow(0 0 2px var(--tx-2));
+      &:hover {
+        color: var(--ac-1);
+        filter: drop-shadow(0 0 2px var(--ac-1));
       }
     }
     .search-icon-small {
@@ -210,14 +248,16 @@
   }
 
   @media (max-width: 1150px) {
-    .search {
-      position: static !important;
+    .navbar .search {
+      position: relative;
     }
   }
 
   @media (max-width: 800px) {
-    .right .icon {
-      display: none !important;
+    .navbar {
+      .right .icon {
+        display: none;
+      }
     }
   }
 
