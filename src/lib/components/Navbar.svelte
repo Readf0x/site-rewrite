@@ -190,7 +190,7 @@
         filter: drop-shadow(0 0 4px var(--tx-2));
         &:hover {
           color: var(--ac-1);
-          text-shadow: 0 0 4px var(--ac-1);
+          filter: drop-shadow(0 0 4px var(--ac-1));
         }
       }
     }
