@@ -1,7 +1,7 @@
 const hello = [
   ["Hi", "English"],
   ["Hola", "Spanish"],
-  ["Nǐ hǎo", "Chinese"],
+  ["Ni hao", "Chinese"],
   ["Konnichiwa", "Japanese"],
   ["Buongiorno", "Italian"],
   ["Namaste", "Hindi"],
