@@ -133,8 +133,7 @@
       &:has(input:focus) {
         filter: drop-shadow(0 0 10px rgba(var(--ac-0-raw), 0.5));
       }
-      svg {
-        &:last-of-type, &:first-of-type {
+      svg:last-of-type, svg:first-of-type {
           path {
             fill: var(--sf-0);
           }
