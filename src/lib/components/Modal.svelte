@@ -1,11 +1,25 @@
 <script lang="ts">
+  import { onDestroy, onMount } from "svelte";
   import { modal } from "../../stores";
+
+  let modalWrapper: HTMLElement;
+
+  function keyHandler(ev: KeyboardEvent) {
+    if(ev.key == "Escape") {
+      ev.preventDefault();
+      $modal = "";
+    }
+  }
+
+  onMount(() => document.addEventListener("keydown", keyHandler));
+
+  onDestroy(() => document.removeEventListener("keydown", keyHandler));
 </script>
 
 {#if $modal}
-  <div class="modal-wrapper">
+  <div class="modal-wrapper" bind:this={modalWrapper}>
     <div class="modal">
-      {@html $modal}
+      <div class="modal-slot">{@html $modal}</div>
       <button on:click={() => $modal = ""} id="close">Close</button>
     </div>
   </div>
@@ -24,8 +38,11 @@
       width: fit-content; height: fit-content;
       padding: 20px;
       background: var(--bg-2);
-      :first-child { margin-top: 0; }
       border-radius: 20px;
+      :first-child { margin-top: 0; }
+      .modal-slot {
+        font-size: 18px;
+      }
       button{
         background: var(--sf-0);
         padding: 2px 6px;

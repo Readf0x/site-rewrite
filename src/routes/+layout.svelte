@@ -28,6 +28,25 @@
     font-variant-ligatures: none;
   }
 
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--bg-2);
+  }
+
+  button,
+  input[type="submit"],
+  input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin: 1px 2px;
+  }
+
   h1,
   h2,
   h3,
@@ -44,16 +63,36 @@
     border: 1px solid var(--ov-0);
     border-radius: 3px;
     font-family: var(--font-code);
-    font-size: 0.75em;
+    font-size: 0.7em;
   }
   p code {
     position: relative;
-    bottom: 1px;
+    bottom: 0.1em;
   }
 
   ::selection {
     background: rgba(var(--ac-0-raw), 0.75) !important;
     text-shadow: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: var(--bg-1);
+    &-track {
+      background: var(--bg-1);
+      padding: 10px 2px;
+    }
+    &-thumb {
+      background: var(--sf-0);
+      border-radius: 5px;
+      &:hover {
+        background: var(--ov-0);
+      }
+    }
+    &-corner {
+      background-color: var(--bg-1);
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -126,44 +165,5 @@
       --ac-1-raw: var(--ctp-latte-lavender-raw);
       --ac-2-raw: var(--ctp-latte-mauve-raw);
     }
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background-color: var(--bg-1);
-    &-track {
-      background: var(--bg-1);
-      padding: 10px 2px;
-    }
-    &-thumb {
-      background: var(--sf-0);
-      border-radius: 5px;
-      &:hover {
-        background: var(--ov-0);
-      }
-    }
-    &-corner {
-      background-color: var(--bg-1);
-    }
-  }
-
-  body {
-    min-height: 100vh;
-    margin: 0;
-    background: var(--bg-2);
-  }
-
-  button,
-  input[type="submit"],
-  input[type="reset"] {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    margin: 1px 2px;
   }
 </style>
