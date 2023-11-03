@@ -65,9 +65,12 @@
     font-family: var(--font-code);
     font-size: 0.7em;
   }
-  p code {
-    position: relative;
-    bottom: 0.1em;
+  p,
+  span {
+    code {
+      position: relative;
+      bottom: 0.1em;
+    }
   }
 
   ::selection {

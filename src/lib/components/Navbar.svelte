@@ -91,7 +91,10 @@
       {@html github}
     </a>
     <button
-      on:click={() => $modal = `<p>Discord has not implemented profile links, DM me <code>@readf0x</code></p>`} class="icon">
+      on:click={() =>
+        ($modal = `Discord has not implemented profile links, DM me <code>@readf0x</code>`)}
+      class="icon"
+    >
       {@html discord}
     </button>
     <div class="search-icon-small">
@@ -141,7 +144,8 @@
         filter: drop-shadow(0 0 10px rgba(var(--ac-0-raw), 0.5));
       }
       &:has(input:focus, input:not(:placeholder-shown)) {
-        .search-icon, .search-shortcut {
+        .search-icon,
+        .search-shortcut {
           opacity: 0;
           pointer-events: none;
         }

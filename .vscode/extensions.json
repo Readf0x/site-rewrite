@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "svelte.svelte-vscode",
-    "ms-vscode.vscode-typescript-next"
-  ]
+  "recommendations": ["svelte.svelte-vscode", "ms-vscode.vscode-typescript-next"]
 }
