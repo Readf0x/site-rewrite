@@ -9,6 +9,8 @@
 
   let searchText: string;
   let searchElem: HTMLInputElement;
+  let flyoutMenu: HTMLElement;
+  let flyoutEnabled = false;
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -34,7 +36,27 @@
         searchElem.value = "";
       }
     });
+    document.addEventListener("click", (ev: MouseEvent) => {
+      // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
+      let targetEl = ev.target; // clicked element
+      do {
+          if(targetEl == flyoutMenu) {
+            // This is a click inside, does nothing, just return.
+            return;
+          }
+          // Go up the DOM
+          // @ts-ignore
+          targetEl = targetEl.parentNode;
+        } while (targetEl);
+        // This is a click outside.
+        flyoutEnabled = false;
+    });
   });
+
+
+  function flyoutHandler() {
+    flyoutEnabled = true;
+  }
 </script>
 
 <nav class="navbar top">
@@ -98,10 +120,18 @@
       {@html discord}
     </button>
   </div>
-  <button class="borgir-menu">
+  <button class="flyout-menu" on:click={flyoutHandler()}>
     <div class="menu-icon">{@html menu}</div>
   </button>
 </nav>
+
+<div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
+  <div class="flyout-wrapper">
+    {#each new Array(25) as item}
+      <a href="/">example page {"asdf".repeat(Math.round(Math.random() * 5))}</a>
+    {/each}
+  </div>
+</div>
 
 <style lang="scss">
   .navbar {
@@ -257,7 +287,7 @@
         display: none;
       }
     }
-    .borgir-menu {
+    .flyout-menu {
       display: none;
       filter: drop-shadow(0 0 4px var(--tx-2));
       padding: 0 18px;
@@ -271,6 +301,37 @@
       @media (max-width: 700px) {
         display: flex;
       }
+    }
+  }
+
+  .flyout-expanded {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--sf-0);
+    max-height: 100%;
+    overflow-y: scroll;
+    z-index: 15;
+    width: 80vw;
+    border-radius: 30px 0 0 30px;
+    &[data-enabled="true"] {
+      display: initial;
+    }
+    .flyout-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      font-size: 5vw;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
     }
   }
 </style>

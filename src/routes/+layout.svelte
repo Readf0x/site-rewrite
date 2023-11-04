@@ -29,7 +29,7 @@
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100%;
     margin: 0;
     background: var(--bg-2);
   }
@@ -71,6 +71,10 @@
       position: relative;
       bottom: 0.1em;
     }
+  }
+
+  a {
+    color: var(--link);
   }
 
   ::selection {
@@ -131,6 +135,8 @@
       --ac-0-raw: 129, 120, 238;
       --ac-1-raw: var(--ctp-mocha-lavender-raw);
       --ac-2-raw: var(--ctp-mocha-mauve-raw);
+
+      --link: var(--ctp-mocha-blue);
     }
   }
 
@@ -167,6 +173,8 @@
       --ac-0-raw: 129, 120, 238;
       --ac-1-raw: var(--ctp-latte-lavender-raw);
       --ac-2-raw: var(--ctp-latte-mauve-raw);
+
+      --link: var(--ctp-latte-blue);
     }
   }
 </style>
