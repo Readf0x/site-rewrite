@@ -76,6 +76,12 @@
   a {
     color: var(--link);
   }
+  
+  .page-content {
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.2em;
+  }
 
   ::selection {
     background: rgba(var(--ac-0-raw), 0.75) !important;

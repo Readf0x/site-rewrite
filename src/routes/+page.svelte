@@ -12,5 +12,5 @@
 <Header bind:hello />
 
 <div class="page-content">
-  <h1>Ex laboris cillum nulla id labore mollit duis.</h1>
+  <h1>Hi, I'm Davis Forsythe</h1>
 </div>

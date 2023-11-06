@@ -263,6 +263,11 @@
         color: var(--ac-1);
         text-shadow: 0 0 4px var(--ac-1);
       }
+      &:focus {
+        color: var(--ac-1);
+        text-shadow: 0 0 4px var(--ac-1);
+        outline: none;
+      }
       @media (max-width: 700px) {
         font-size: 7vw;
         height: 100%;
@@ -282,6 +287,9 @@
       }
       @media (max-width: 800px) {
         display: none;
+      }
+      &:focus {
+        filter: drop-shadow(0 0 2px var(--ac-1));
       }
     }
     .flyout-menu {
