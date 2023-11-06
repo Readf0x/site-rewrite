@@ -51,8 +51,11 @@
         text-align: center;
         width: 100vw;
         left: 0;
-        text-shadow: 0px 0px 60px black, 0px 0px 60px black, 0px 0px 4px var(--tx-0);
+        text-shadow: 0px 0px 12vw black, 0px 0px 12vw black, 0px 0px 4px var(--tx-0);
         top: calc(8vw + 5vw);
+        @media (prefers-color-scheme: light) {
+          text-shadow: 0px 0px 6vw rgba(0, 0, 0, 0.2), 0px 0px 6vw rgba(0, 0, 0, 0.2), 0px 0px 4px var(--tx-0);
+        }
       }
     }
     .photo {
@@ -107,20 +110,26 @@
       }
       @media (max-width: 700px) {
         right: inherit;
-        top: calc(65vw + 50px);
+        top: calc(65vw + 15vw);
         z-index: 2;
         .big {
           font-size: 12vw;
-          text-shadow: 0px 0px 40px black, 0px 0px 40px black, 0px 0px 4px var(--tx-0);
+          text-shadow: 0px 0px 8vw black, 0px 0px 8vw black, 0px 0px 4px var(--tx-0);
           text-align: center;
+          @media (prefers-color-scheme: light) {
+            text-shadow: 0px 0px 4vw rgba(0, 0, 0, 0.2), 0px 0px 4vw rgba(0, 0, 0, 0.2), 0px 0px 4px var(--tx-0);
+          }
         }
         .small {
           font-size: 6vw;
           margin-left: 0;
           margin: auto;
           margin-top: 5vw;
-          text-shadow: 0px 0px 20px black, 0px 0px 20px black, 0px 0px 4px var(--tx-0);
+          text-shadow: 0px 0px 4vw black, 0px 0px 4vw black, 0px 0px 4px var(--tx-0);
           max-width: calc(100vw - 20vw);
+          @media (prefers-color-scheme: light) {
+            text-shadow: 0px 0px 2vw rgba(0, 0, 0, 0.2), 0px 0px 2vw rgba(0, 0, 0, 0.2), 0px 0px 4px var(--tx-0);
+          }
         }
         .big, .small {
           width: 100vw;

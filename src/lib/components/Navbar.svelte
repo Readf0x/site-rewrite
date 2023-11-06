@@ -5,12 +5,12 @@
   import menu from "$lib/icons/menu.svg?raw";
   import { onMount } from "svelte";
   import { modal } from "../../stores";
-  import { page } from "$app/stores";
 
   let searchText: string;
   let searchElem: HTMLInputElement;
   let flyoutMenu: HTMLElement;
-  let flyoutEnabled = false;
+  let flyoutButton: HTMLElement;
+  let flyoutEnabled: boolean = false;
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -39,24 +39,19 @@
     document.addEventListener("click", (ev: MouseEvent) => {
       // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
       let targetEl = ev.target; // clicked element
-      do {
-          if(targetEl == flyoutMenu) {
+      while (targetEl) {
+          if(targetEl == flyoutButton || targetEl == flyoutMenu) {
             // This is a click inside, does nothing, just return.
             return;
           }
           // Go up the DOM
           // @ts-ignore
           targetEl = targetEl.parentNode;
-        } while (targetEl);
+        };
         // This is a click outside.
         flyoutEnabled = false;
     });
   });
-
-
-  function flyoutHandler() {
-    flyoutEnabled = true;
-  }
 </script>
 
 <nav class="navbar top">
@@ -120,7 +115,7 @@
       {@html discord}
     </button>
   </div>
-  <button class="flyout-menu" on:click={flyoutHandler()}>
+    <button class="flyout-menu" on:click={() => flyoutEnabled = !flyoutEnabled} bind:this={flyoutButton}>
     <div class="menu-icon">{@html menu}</div>
   </button>
 </nav>
@@ -305,18 +300,18 @@
   }
 
   .flyout-expanded {
-    display: none;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -100%;
     background: var(--sf-0);
-    max-height: 100%;
+    height: 100%;
     overflow-y: scroll;
     z-index: 15;
     width: 80vw;
     border-radius: 30px 0 0 30px;
+    transition: 0.4s;
     &[data-enabled="true"] {
-      display: initial;
+      right: 0;
     }
     .flyout-wrapper {
       display: flex;
@@ -332,6 +327,12 @@
     &::-webkit-scrollbar {
       width: 0 !important;
       height: 0 !important;
+    }
+
+    @keyframes flyin {
+      from {
+
+      }
     }
   }
 </style>
