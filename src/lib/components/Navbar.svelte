@@ -120,11 +120,13 @@
   </button>
 </nav>
 
-<div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
-  <div class="flyout-wrapper">
-    {#each new Array(25) as item}
-      <a href="/">example page {"asdf".repeat(Math.round(Math.random() * 5))}</a>
-    {/each}
+<div class="flyout-wrapper">
+  <div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
+    <div class="flyout-container">
+      {#each new Array(25) as item}
+        <a href="/">example page {"asdf".repeat(Math.round(Math.random() * 5))}</a>
+      {/each}
+    </div>
   </div>
 </div>
 
@@ -298,40 +300,51 @@
       }
     }
   }
-
-  .flyout-expanded {
-    position: absolute;
+  .flyout-wrapper {
+    position: fixed;
     top: 0;
-    right: -100%;
-    background: var(--sf-0);
+    right: 0;
+    width: 100vw;
     height: 100%;
-    overflow-y: scroll;
+    overflow: hidden;
     z-index: 15;
-    width: 80vw;
-    border-radius: 30px 0 0 30px;
-    transition: 0.4s;
-    &[data-enabled="true"] {
-      right: 0;
+    pointer-events: none;
+    &:has([data-enabled="true"]) {
+      pointer-events: unset;
     }
-    .flyout-wrapper {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      gap: 20px;
-      font-size: 5vw;
-      a {
-        color: inherit;
-        text-decoration: none;
+    .flyout-expanded {
+      position: absolute;
+      top: 0;
+      right: -100%;
+      background: var(--sf-0);
+      height: 100%;
+      overflow-y: scroll;
+      width: 80vw;
+      border-radius: 30px 0 0 30px;
+      transition: 0.4s;
+      &[data-enabled="true"] {
+        right: 0;
       }
-    }
-    &::-webkit-scrollbar {
-      width: 0 !important;
-      height: 0 !important;
-    }
+      .flyout-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        font-size: 5vw;
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+      &::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+      }
 
-    @keyframes flyin {
-      from {
+      @keyframes flyin {
+        from {
 
+        }
       }
     }
   }

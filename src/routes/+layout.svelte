@@ -29,15 +29,9 @@
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100%;
     margin: 0;
     background: var(--bg-2);
-    display: flex;
-    #app {
-      overflow: hidden;
-      position: relative;
-      flex-grow: 1;
-    }
   }
 
   button,
