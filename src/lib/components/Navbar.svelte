@@ -123,9 +123,9 @@
 <div class="flyout-wrapper">
   <div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
     <div class="flyout-container">
-      {#each new Array(25) as item}
-        <a href="/">example page {"asdf".repeat(Math.round(Math.random() * 5))}</a>
-      {/each}
+      <a href="/" on:click={() => flyoutEnabled = false}>Home</a>
+      <a href="/about" on:click={() => flyoutEnabled = false}>About</a>
+      <a href="/projects" on:click={() => flyoutEnabled = false}>Projects</a>
     </div>
   </div>
 </div>
@@ -139,7 +139,7 @@
     top: 0;
     z-index: 10;
     background: var(--bg-1);
-    transition: 0.4s;
+    transition: background 0.4s;
     &.top {
       background: none;
     }
@@ -151,7 +151,7 @@
       align-items: center;
       gap: 20px;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       height: 15vw;
       .left {
         height: 15vw;
@@ -199,7 +199,7 @@
       @media (max-width: 1300px) {
         position: relative;
       }
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         display: none;
       }
     }
@@ -268,7 +268,7 @@
         text-shadow: 0 0 4px var(--ac-1);
         outline: none;
       }
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         font-size: 7vw;
         height: 100%;
         display: flex;
@@ -303,7 +303,7 @@
       .menu-icon {
         width: 7vw; height: 7vw;
       }
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         display: flex;
       }
     }
@@ -329,7 +329,7 @@
       overflow-y: scroll;
       width: 80vw;
       border-radius: 30px 0 0 30px;
-      transition: 0.4s;
+      transition: right 0.4s;
       &[data-enabled="true"] {
         right: 0;
       }
@@ -338,7 +338,7 @@
         flex-direction: column;
         padding: 20px;
         gap: 20px;
-        font-size: 5vw;
+        font-size: 7.5vw;
         a {
           color: inherit;
           text-decoration: none;
@@ -348,12 +348,9 @@
         width: 0 !important;
         height: 0 !important;
       }
-
-      @keyframes flyin {
-        from {
-
-        }
-      }
+    }
+    @media (min-width: 600px) {
+      display: none;
     }
   }
 </style>

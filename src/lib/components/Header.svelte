@@ -29,7 +29,7 @@
       rgba(var(--ac-0-raw), 0) 30%
       ),
       var(--bg-0);
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       height: 120vw;
       margin-top: -15vw;
     }
@@ -46,7 +46,7 @@
       margin: 0;
       font-size: 10vw;
       text-shadow: 0 0 0.5vw var(--tx-0);
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         font-size: 26vw;
         text-align: center;
         width: 100vw;
@@ -70,7 +70,7 @@
       margin: auto;
       display: block;
       filter: drop-shadow(0 0 20px rgba(var(--ac-0-raw), 0.2));
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         width: 170vw;
         height: calc(100% + 50px);
         bottom: 50px;
@@ -108,7 +108,7 @@
           }
         }
       }
-      @media (max-width: 700px) {
+      @media (max-width: 600px) {
         right: inherit;
         top: calc(65vw + 15vw);
         z-index: 2;
