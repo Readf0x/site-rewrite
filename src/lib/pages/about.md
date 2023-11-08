@@ -14,5 +14,5 @@ function maximumCount(nums: number[]): number {
 ```
 
 ```ts
-maximumCount([-4, -2, -6, -1, 4, 6, 2, 7, 8])
+maximumCount([-4, -2, -6, -1, 4, 6, 2, 7, 8]);
 ```

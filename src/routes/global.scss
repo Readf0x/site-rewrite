@@ -10,7 +10,8 @@
 :root {
   --font: "VT323", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-code: "Fira Code", "FiraCode Nerd Font", "Menlo", "Cascadia Code", "Consolas", "Liberation Mono", monospace;
+  --font-code: "Fira Code", "FiraCode Nerd Font", "Menlo", "Cascadia Code", "Consolas",
+    "Liberation Mono", monospace;
   font-family: var(--font);
   color: var(--tx-2);
 }
@@ -125,38 +126,38 @@ a {
     --ac-1: rgb(var(--ac-1-raw));
     --ac-2: rgb(var(--ac-2-raw));
 
-    --bg-0-raw: #{get-raw('mocha', 'crust')};
-    --bg-1-raw: #{get-raw('mocha', 'mantle')};
-    --bg-2-raw: #{get-raw('mocha', 'base')};
-    --sf-0-raw: #{get-raw('mocha', 'surface0')};
-    --sf-1-raw: #{get-raw('mocha', 'surface1')};
-    --sf-2-raw: #{get-raw('mocha', 'surface2')};
-    --ov-0-raw: #{get-raw('mocha', 'overlay0')};
-    --ov-1-raw: #{get-raw('mocha', 'overlay1')};
-    --ov-2-raw: #{get-raw('mocha', 'overlay2')};
-    --tx-0-raw: #{get-raw('mocha', 'subtext0')};
-    --tx-1-raw: #{get-raw('mocha', 'subtext1')};
-    --tx-2-raw: #{get-raw('mocha', 'text')};
+    --bg-0-raw: #{get-raw("mocha", "crust")};
+    --bg-1-raw: #{get-raw("mocha", "mantle")};
+    --bg-2-raw: #{get-raw("mocha", "base")};
+    --sf-0-raw: #{get-raw("mocha", "surface0")};
+    --sf-1-raw: #{get-raw("mocha", "surface1")};
+    --sf-2-raw: #{get-raw("mocha", "surface2")};
+    --ov-0-raw: #{get-raw("mocha", "overlay0")};
+    --ov-1-raw: #{get-raw("mocha", "overlay1")};
+    --ov-2-raw: #{get-raw("mocha", "overlay2")};
+    --tx-0-raw: #{get-raw("mocha", "subtext0")};
+    --tx-1-raw: #{get-raw("mocha", "subtext1")};
+    --tx-2-raw: #{get-raw("mocha", "text")};
     --ac-0-raw: 129, 120, 238;
-    --ac-1-raw: #{get-raw('mocha', 'lavender')};
-    --ac-2-raw: #{get-raw('mocha', 'mauve')};
+    --ac-1-raw: #{get-raw("mocha", "lavender")};
+    --ac-2-raw: #{get-raw("mocha", "mauve")};
 
-    --link: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'blue')};
+    --link: #{map-get(map-get(catppuccin.$palette, "mocha"), "blue")};
 
-    --rosewater: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'rosewater')};
-    --flamingo: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'flamingo')};
-    --pink: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'pink')};
-    --mauve: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'mauve')};
-    --red: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'red')};
-    --maroon: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'maroon')};
-    --peach: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'peach')};
-    --yellow: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'yellow')};
-    --green: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'green')};
-    --teal: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'teal')};
-    --sky: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'sky')};
-    --sapphire: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'sapphire')};
-    --blue: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'blue')};
-    --lavender: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'lavender')};
+    --rosewater: #{map-get(map-get(catppuccin.$palette, "mocha"), "rosewater")};
+    --flamingo: #{map-get(map-get(catppuccin.$palette, "mocha"), "flamingo")};
+    --pink: #{map-get(map-get(catppuccin.$palette, "mocha"), "pink")};
+    --mauve: #{map-get(map-get(catppuccin.$palette, "mocha"), "mauve")};
+    --red: #{map-get(map-get(catppuccin.$palette, "mocha"), "red")};
+    --maroon: #{map-get(map-get(catppuccin.$palette, "mocha"), "maroon")};
+    --peach: #{map-get(map-get(catppuccin.$palette, "mocha"), "peach")};
+    --yellow: #{map-get(map-get(catppuccin.$palette, "mocha"), "yellow")};
+    --green: #{map-get(map-get(catppuccin.$palette, "mocha"), "green")};
+    --teal: #{map-get(map-get(catppuccin.$palette, "mocha"), "teal")};
+    --sky: #{map-get(map-get(catppuccin.$palette, "mocha"), "sky")};
+    --sapphire: #{map-get(map-get(catppuccin.$palette, "mocha"), "sapphire")};
+    --blue: #{map-get(map-get(catppuccin.$palette, "mocha"), "blue")};
+    --lavender: #{map-get(map-get(catppuccin.$palette, "mocha"), "lavender")};
   }
 }
 
@@ -178,37 +179,37 @@ a {
     --ac-1: rgb(var(--ac-1-raw));
     --ac-2: rgb(var(--ac-2-raw));
 
-    --bg-0-raw: #{get-raw('latte', 'crust')};
-    --bg-1-raw: #{get-raw('latte', 'mantle')};
-    --bg-2-raw: #{get-raw('latte', 'base')};
-    --sf-0-raw: #{get-raw('latte', 'surface0')};
-    --sf-1-raw: #{get-raw('latte', 'surface1')};
-    --sf-2-raw: #{get-raw('latte', 'surface2')};
-    --ov-0-raw: #{get-raw('latte', 'overlay0')};
-    --ov-1-raw: #{get-raw('latte', 'overlay1')};
-    --ov-2-raw: #{get-raw('latte', 'overlay2')};
-    --tx-0-raw: #{get-raw('latte', 'subtext0')};
-    --tx-1-raw: #{get-raw('latte', 'subtext1')};
-    --tx-2-raw: #{get-raw('latte', 'text')};
+    --bg-0-raw: #{get-raw("latte", "crust")};
+    --bg-1-raw: #{get-raw("latte", "mantle")};
+    --bg-2-raw: #{get-raw("latte", "base")};
+    --sf-0-raw: #{get-raw("latte", "surface0")};
+    --sf-1-raw: #{get-raw("latte", "surface1")};
+    --sf-2-raw: #{get-raw("latte", "surface2")};
+    --ov-0-raw: #{get-raw("latte", "overlay0")};
+    --ov-1-raw: #{get-raw("latte", "overlay1")};
+    --ov-2-raw: #{get-raw("latte", "overlay2")};
+    --tx-0-raw: #{get-raw("latte", "subtext0")};
+    --tx-1-raw: #{get-raw("latte", "subtext1")};
+    --tx-2-raw: #{get-raw("latte", "text")};
     --ac-0-raw: 129, 120, 238;
-    --ac-1-raw: #{get-raw('latte', 'lavender')};
-    --ac-2-raw: #{get-raw('latte', 'mauve')};
+    --ac-1-raw: #{get-raw("latte", "lavender")};
+    --ac-2-raw: #{get-raw("latte", "mauve")};
 
-    --link: #{map-get(map-get(catppuccin.$palette, 'latte'), 'blue')};
+    --link: #{map-get(map-get(catppuccin.$palette, "latte"), "blue")};
 
-    --rosewater: #{map-get(map-get(catppuccin.$palette, 'latte'), 'rosewater')};
-    --flamingo: #{map-get(map-get(catppuccin.$palette, 'latte'), 'flamingo')};
-    --pink: #{map-get(map-get(catppuccin.$palette, 'latte'), 'pink')};
-    --mauve: #{map-get(map-get(catppuccin.$palette, 'latte'), 'mauve')};
-    --red: #{map-get(map-get(catppuccin.$palette, 'latte'), 'red')};
-    --maroon: #{map-get(map-get(catppuccin.$palette, 'latte'), 'maroon')};
-    --peach: #{map-get(map-get(catppuccin.$palette, 'latte'), 'peach')};
-    --yellow: #{map-get(map-get(catppuccin.$palette, 'latte'), 'yellow')};
-    --green: #{map-get(map-get(catppuccin.$palette, 'latte'), 'green')};
-    --teal: #{map-get(map-get(catppuccin.$palette, 'latte'), 'teal')};
-    --sky: #{map-get(map-get(catppuccin.$palette, 'latte'), 'sky')};
-    --sapphire: #{map-get(map-get(catppuccin.$palette, 'latte'), 'sapphire')};
-    --blue: #{map-get(map-get(catppuccin.$palette, 'latte'), 'blue')};
-    --lavender: #{map-get(map-get(catppuccin.$palette, 'latte'), 'lavender')};
+    --rosewater: #{map-get(map-get(catppuccin.$palette, "latte"), "rosewater")};
+    --flamingo: #{map-get(map-get(catppuccin.$palette, "latte"), "flamingo")};
+    --pink: #{map-get(map-get(catppuccin.$palette, "latte"), "pink")};
+    --mauve: #{map-get(map-get(catppuccin.$palette, "latte"), "mauve")};
+    --red: #{map-get(map-get(catppuccin.$palette, "latte"), "red")};
+    --maroon: #{map-get(map-get(catppuccin.$palette, "latte"), "maroon")};
+    --peach: #{map-get(map-get(catppuccin.$palette, "latte"), "peach")};
+    --yellow: #{map-get(map-get(catppuccin.$palette, "latte"), "yellow")};
+    --green: #{map-get(map-get(catppuccin.$palette, "latte"), "green")};
+    --teal: #{map-get(map-get(catppuccin.$palette, "latte"), "teal")};
+    --sky: #{map-get(map-get(catppuccin.$palette, "latte"), "sky")};
+    --sapphire: #{map-get(map-get(catppuccin.$palette, "latte"), "sapphire")};
+    --blue: #{map-get(map-get(catppuccin.$palette, "latte"), "blue")};
+    --lavender: #{map-get(map-get(catppuccin.$palette, "latte"), "lavender")};
   }
 }

@@ -14,13 +14,13 @@ async function getPosts() {
       const metadata = file.metadata as Omit<Post, "slug">;
       const post = { ...metadata, slug } satisfies Post;
       post.allowed && posts.push(post);
-    };
-  };
+    }
+  }
 
-  posts = posts.sort((first, second) =>
-    new Date(second.date).getTime() - new Date(first.date).getTime()
+  posts = posts.sort(
+    (first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
   );
-  
+
   return posts;
 }
 

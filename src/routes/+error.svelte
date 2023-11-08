@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+  import { page } from "$app/stores";
 
   let collapsible: boolean = false;
   let message: (status: number) => string = function (i: number): string {
@@ -10,14 +10,18 @@
         return "Whoopsie! Looks like my server code failed, sorry about that!";
       default:
         return `No funny message found for ${i} errors`;
-    };
-  }
+    }
+  };
 </script>
 
 <div class="page-content">
   <h1>{message($page.status)}</h1>
   <a href="/">Return from whence you came!</a>
-  <button class="collapsible-button" data-enabled={collapsible} on:click={() => collapsible = !collapsible}>&gt;</button>
+  <button
+    class="collapsible-button"
+    data-enabled={collapsible}
+    on:click={() => (collapsible = !collapsible)}>&gt;</button
+  >
   <div class="collapsible-content" data-enabled={collapsible}>
     <p>Error {$page.status}: {$page.error?.message}</p>
   </div>
@@ -27,14 +31,14 @@
   .collapsible-button {
     transform: rotate(-90deg);
     transition: 0.4s;
-    &[data-enabled=true] {
+    &[data-enabled="true"] {
       transform: rotate(90deg);
     }
   }
   .collapsible-content {
     overflow-y: hidden;
     height: 0px;
-    &[data-enabled=true] {
+    &[data-enabled="true"] {
       height: fit-content;
     }
   }

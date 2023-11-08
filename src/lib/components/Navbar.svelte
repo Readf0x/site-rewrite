@@ -43,16 +43,16 @@
       // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
       let targetEl = ev.target; // clicked element
       while (targetEl) {
-          if(targetEl == flyoutButton || targetEl == flyoutMenu) {
-            // This is a click inside, does nothing, just return.
-            return;
-          }
-          // Go up the DOM
-          // @ts-ignore
-          targetEl = targetEl.parentNode;
-        };
-        // This is a click outside.
-        flyoutEnabled = false;
+        if (targetEl == flyoutButton || targetEl == flyoutMenu) {
+          // This is a click inside, does nothing, just return.
+          return;
+        }
+        // Go up the DOM
+        // @ts-ignore
+        targetEl = targetEl.parentNode;
+      }
+      // This is a click outside.
+      flyoutEnabled = false;
     });
   });
 </script>
@@ -118,17 +118,26 @@
       {@html discord}
     </button>
   </div>
-    <button class="flyout-menu" on:click={() => flyoutEnabled = !flyoutEnabled} bind:this={flyoutButton}>
+  <button
+    class="flyout-menu"
+    on:click={() => (flyoutEnabled = !flyoutEnabled)}
+    bind:this={flyoutButton}
+  >
     <div class="menu-icon">{@html menu}</div>
   </button>
 </nav>
 
 <div class="flyout-wrapper">
-  <div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
+  <div
+    class="flyout-expanded"
+    aria-expanded={flyoutEnabled}
+    data-enabled={flyoutEnabled}
+    bind:this={flyoutMenu}
+  >
     <div class="flyout-container">
-      <a href="/" on:click={() => flyoutEnabled = false}>Home</a>
+      <a href="/" on:click={() => (flyoutEnabled = false)}>Home</a>
       {#each posts as post}
-        <a href={post.slug} on:click={() => flyoutEnabled = false}>{post.title}</a>
+        <a href={post.slug} on:click={() => (flyoutEnabled = false)}>{post.title}</a>
       {/each}
     </div>
   </div>
@@ -284,28 +293,29 @@
       height: fit-content;
       width: fit-content;
       padding: 0;
-      filter: drop-shadow(0 0 .1em var(--tx-2));
+      filter: drop-shadow(0 0 0.1em var(--tx-2));
       &:hover {
         color: var(--ac-1);
-        filter: drop-shadow(0 0 .1em var(--ac-1));
+        filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
       @media (max-width: 800px) {
         display: none;
       }
       &:focus {
-        filter: drop-shadow(0 0 .1em var(--ac-1));
+        filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
     }
     .flyout-menu {
       display: none;
-      filter: drop-shadow(0 0 .1em var(--tx-2));
+      filter: drop-shadow(0 0 0.1em var(--tx-2));
       padding: 0 18px;
       &:hover {
         color: var(--ac-1);
-        filter: drop-shadow(0 0 .1em var(--ac-1));
+        filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
       .menu-icon {
-        width: 7vw; height: 7vw;
+        width: 7vw;
+        height: 7vw;
       }
       @media (max-width: 650px) {
         display: flex;
