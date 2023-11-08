@@ -61,7 +61,6 @@ pre[class*="language-"] {
 .token {
   color: inherit;
   &.keyword,
-  &.builtin,
   &.symbol,
   &.important,
   &.atrule {
@@ -93,6 +92,7 @@ pre[class*="language-"] {
     color: var(--teal);
   }
   &.variable,
+  &.builtin,
   &.deleted {
     color: var(--red);
   }
