@@ -2,10 +2,20 @@
 	import { page } from '$app/stores';
 
   let collapsible: boolean = false;
+  let message: (status: number) => string = function (i: number): string {
+    switch (i) {
+      case 404:
+        return "I don't know how you got here, but this place doesn't exist.";
+      case 500:
+        return "Whoopsie! Looks like my server code failed, sorry about that!";
+      default:
+        return `No funny message found for ${i} errors`;
+    };
+  }
 </script>
 
 <div class="page-content">
-  <h1>I don't how you got here, but this place doesn't exist.</h1>
+  <h1>{message($page.status)}</h1>
   <a href="/">Return from whence you came!</a>
   <button class="collapsible-button" data-enabled={collapsible} on:click={() => collapsible = !collapsible}>&gt;</button>
   <div class="collapsible-content" data-enabled={collapsible}>
