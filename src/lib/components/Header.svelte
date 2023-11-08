@@ -95,7 +95,7 @@
         font-size: 2.25vw;
         text-shadow: 0px 0px 0.1em var(--tx-0);
         margin-top: 1.5vw;
-        margin-left: 4vw;
+        margin-left: 3.5vw;
         max-width: 100%;
       }
       @media (max-width: 1000px) {
