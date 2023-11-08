@@ -5,12 +5,15 @@
   import menu from "$lib/icons/menu.svg?raw";
   import { onMount } from "svelte";
   import { modal } from "../../stores";
+  import type { Post } from "$lib/types";
 
   let searchText: string;
   let searchElem: HTMLInputElement;
   let flyoutMenu: HTMLElement;
   let flyoutButton: HTMLElement;
   let flyoutEnabled: boolean = false;
+
+  export let posts: Post[];
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -124,8 +127,9 @@
   <div class="flyout-expanded" aria-expanded={flyoutEnabled} data-enabled={flyoutEnabled} bind:this={flyoutMenu}>
     <div class="flyout-container">
       <a href="/" on:click={() => flyoutEnabled = false}>Home</a>
-      <a href="/about" on:click={() => flyoutEnabled = false}>About</a>
-      <a href="/projects" on:click={() => flyoutEnabled = false}>Projects</a>
+      {#each posts as post}
+        <a href={post.slug} on:click={() => flyoutEnabled = false}>{post.title}</a>
+      {/each}
     </div>
   </div>
 </div>

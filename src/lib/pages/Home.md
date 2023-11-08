@@ -1,3 +1,7 @@
+---
+allowed: false
+---
+
 # Hi, I'm Davis Forsythe
 
 I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest Community College. I plan to study computer science and become a software dev, but I don't have any specific college in mind. I've always said that if I don't go to an ivy league college, it doesn't really matter where I go.

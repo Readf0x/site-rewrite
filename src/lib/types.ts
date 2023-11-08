@@ -5,5 +5,5 @@ export type Post = {
 	slug: string
 	description: string
 	date: string
-	published: boolean
+	allowed: boolean
 }

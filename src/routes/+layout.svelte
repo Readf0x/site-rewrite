@@ -4,10 +4,13 @@
   import "$lib/prism/catppuccin.css";
   import Navbar from "$lib/components/Navbar.svelte";
   import Modal from "$lib/components/Modal.svelte";
+
+  export let data;
+  let { posts } = data;
 </script>
 
 <Modal />
-<Navbar />
+<Navbar bind:posts />
 <slot />
 
 <svelte:head>
