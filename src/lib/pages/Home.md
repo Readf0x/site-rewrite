@@ -4,8 +4,8 @@ I'm currently a junior at Horn Lake High School enrolled in dual credit classes 
 
 I've lived in Mississippi my whole life, but I plan to move out of the US eventually. Ideally I'd like to live in a more socialist country like Norway or The Netherlands, but for now I'm still in the good ole' US of A.
 
-I have a variety of hobbies, but most of them are at least computer-adjacent. Some of the hobbies I really enjoy include: 
+I have a variety of hobbies, but most of them are at least computer-adjacent. Some of the hobbies I really enjoy include:
+
 - Linux
 - Gaming
 - Mechanical keyboards
-

@@ -9,7 +9,7 @@
   <a href="/">Return from whence you came!</a>
   <button class="collapsible-button" data-enabled={collapsible} on:click={() => collapsible = !collapsible}>&gt;</button>
   <div class="collapsible-content" data-enabled={collapsible}>
-    <p>Error: {$page.error?.message}</p>
+    <p>Error {$page.status}: {$page.error?.message}</p>
   </div>
 </div>
 

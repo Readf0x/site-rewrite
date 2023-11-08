@@ -1,11 +1,10 @@
-<script>
-  import Header from "$lib/components/Header.svelte";
-  // @ts-ignore
-  import Home from "$lib/markdown/Home.md";
+<script lang="ts">
+  import Header from "$lib/components/Header.svelte"
+  import Home from "$lib/pages/Home.md";
 
   // @ts-ignore
-  export let data;
-  let { hello } = data;
+  export let data
+  let { hello } = data
 </script>
 
 <svelte:head>

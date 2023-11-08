@@ -11,6 +11,8 @@ pre[class*="language-"] {
   font-family: var(--font-code);
   font-size: 16px;
   text-align: left;
+  border-radius: 10px;
+  margin: 0 -1em 1em;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
@@ -29,8 +31,8 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: .75em 0;
-  /* overflow: auto; */
+  padding: .75em 1em;
+  overflow: visible;
   position: relative;
 }
 
@@ -54,17 +56,6 @@ pre[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
   white-space: normal;
-}
-code[class*="language-"]::before {
-  content: "";
-  display: flex;
-  background: var(--bg-0);
-  position: absolute;
-  top: 0;
-  left: -1em;
-  width: 1em;
-  height: calc(50% + 1.5em);
-  clip-path: ellipse(100% 100% at 150% 50%);
 }
 
 .token.comment,

@@ -280,25 +280,25 @@
       height: fit-content;
       width: fit-content;
       padding: 0;
-      filter: drop-shadow(0 0 2px var(--tx-2));
+      filter: drop-shadow(0 0 .1em var(--tx-2));
       &:hover {
         color: var(--ac-1);
-        filter: drop-shadow(0 0 2px var(--ac-1));
+        filter: drop-shadow(0 0 .1em var(--ac-1));
       }
       @media (max-width: 800px) {
         display: none;
       }
       &:focus {
-        filter: drop-shadow(0 0 2px var(--ac-1));
+        filter: drop-shadow(0 0 .1em var(--ac-1));
       }
     }
     .flyout-menu {
       display: none;
-      filter: drop-shadow(0 0 4px var(--tx-2));
+      filter: drop-shadow(0 0 .1em var(--tx-2));
       padding: 0 18px;
       &:hover {
         color: var(--ac-1);
-        filter: drop-shadow(0 0 4px var(--ac-1));
+        filter: drop-shadow(0 0 .1em var(--ac-1));
       }
       .menu-icon {
         width: 7vw; height: 7vw;

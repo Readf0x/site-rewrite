@@ -4,12 +4,12 @@ import adapter from "@sveltejs/adapter-auto";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', '.svx', '.md'],
+  extensions: ['.svelte', '.md'],
   preprocess: [
+    /** @type {import('mdsvex').MdsvexOptions} */
     mdsvex({
-      extensions: ['.svx', '.md'],
-      smartypants: true,
-      layout: "./src/markdown.svelte"
+      extensions: ['.md'],
+      smartypants: true
     }),
     vitePreprocess()
   ],
