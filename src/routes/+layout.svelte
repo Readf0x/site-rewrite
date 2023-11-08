@@ -1,7 +1,7 @@
 <script>
   import "@catppuccin/palette/style";
   import "./global.scss";
-  import "$lib/prism/catppuccin.css";
+  import "$lib/prism/catppuccin.scss";
   import Navbar from "$lib/components/Navbar.svelte";
   import Modal from "$lib/components/Modal.svelte";
 

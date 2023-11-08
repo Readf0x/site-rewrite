@@ -60,58 +60,59 @@ pre[class*="language-"] {
 
 .token {
   color: inherit;
-  .keyword,
-  .builtin,
-  .symbol,
-  .important,
-  .atrule {
+  &.keyword,
+  &.builtin,
+  &.symbol,
+  &.important,
+  &.atrule {
     color: var(--mauve);
   }
-  .class-name,
-  .attr-name,
-  .namespace,
-  .selector {
+  &.class-name,
+  &.attr-name,
+  &.namespace,
+  &.selector {
     color: var(--yellow);
   }
-  .function,
-  .tag {
+  &.function,
+  &.tag {
     columns: var(--blue);
   }
-  .boolean, .number {
+  &.boolean,
+  &.number {
     color: var(--peach);
   }
-  .string,
-  .char,
-  .regex,
-  .url,
-  .attr-value,
-  .inserted {
+  &.string,
+  &.char,
+  &.regex,
+  &.url,
+  &.attr-value,
+  &.inserted {
     color: var(--green);
   }
-  .operator {
+  &.operator {
     color: var(--teal);
   }
-  .variable,
-  .deleted {
+  &.variable,
+  &.deleted {
     color: var(--red);
   }
-  .punctuation {
+  &.punctuation {
     color: var(--tx-0);
   }
-  .comment,
-  .prolog,
-  .doctype,
-  .cdata {
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata {
     color: var(--ov-2);
   }
 
-  .function,
-  .namespace,
-  .italic {
+  &.function,
+  &.namespace,
+  &.italic {
     font-style: italic;
   }
 
-  .bold {
+  &.bold {
     font-weight: bold;
   }
 }
