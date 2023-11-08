@@ -108,24 +108,28 @@ a {
   }
 }
 
+:root {
+  --bg-0: rgb(var(--bg-0-raw));
+  --bg-1: rgb(var(--bg-1-raw));
+  --bg-2: rgb(var(--bg-2-raw));
+  --sf-0: rgb(var(--sf-0-raw));
+  --sf-1: rgb(var(--sf-1-raw));
+  --sf-2: rgb(var(--sf-2-raw));
+  --ov-0: rgb(var(--ov-0-raw));
+  --ov-1: rgb(var(--ov-1-raw));
+  --ov-2: rgb(var(--ov-2-raw));
+  --tx-0: rgb(var(--tx-0-raw));
+  --tx-1: rgb(var(--tx-1-raw));
+  --tx-2: rgb(var(--tx-2-raw));
+  --ac-0: rgb(var(--ac-0-raw));
+  --ac-1: rgb(var(--ac-1-raw));
+  --ac-2: rgb(var(--ac-2-raw));
+
+  --link: var(--blue);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-0: rgb(var(--bg-0-raw));
-    --bg-1: rgb(var(--bg-1-raw));
-    --bg-2: rgb(var(--bg-2-raw));
-    --sf-0: rgb(var(--sf-0-raw));
-    --sf-1: rgb(var(--sf-1-raw));
-    --sf-2: rgb(var(--sf-2-raw));
-    --ov-0: rgb(var(--ov-0-raw));
-    --ov-1: rgb(var(--ov-1-raw));
-    --ov-2: rgb(var(--ov-2-raw));
-    --tx-0: rgb(var(--tx-0-raw));
-    --tx-1: rgb(var(--tx-1-raw));
-    --tx-2: rgb(var(--tx-2-raw));
-    --ac-0: rgb(var(--ac-0-raw));
-    --ac-1: rgb(var(--ac-1-raw));
-    --ac-2: rgb(var(--ac-2-raw));
-
     --bg-0-raw: #{get-raw("mocha", "crust")};
     --bg-1-raw: #{get-raw("mocha", "mantle")};
     --bg-2-raw: #{get-raw("mocha", "base")};
@@ -141,8 +145,6 @@ a {
     --ac-0-raw: 129, 120, 238;
     --ac-1-raw: #{get-raw("mocha", "lavender")};
     --ac-2-raw: #{get-raw("mocha", "mauve")};
-
-    --link: #{map-get(map-get(catppuccin.$palette, "mocha"), "blue")};
 
     --rosewater: #{map-get(map-get(catppuccin.$palette, "mocha"), "rosewater")};
     --flamingo: #{map-get(map-get(catppuccin.$palette, "mocha"), "flamingo")};
@@ -163,22 +165,6 @@ a {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-0: rgb(var(--bg-0-raw));
-    --bg-1: rgb(var(--bg-1-raw));
-    --bg-2: rgb(var(--bg-2-raw));
-    --sf-0: rgb(var(--sf-0-raw));
-    --sf-1: rgb(var(--sf-1-raw));
-    --sf-2: rgb(var(--sf-2-raw));
-    --ov-0: rgb(var(--ov-0-raw));
-    --ov-1: rgb(var(--ov-1-raw));
-    --ov-2: rgb(var(--ov-2-raw));
-    --tx-0: rgb(var(--tx-0-raw));
-    --tx-1: rgb(var(--tx-1-raw));
-    --tx-2: rgb(var(--tx-2-raw));
-    --ac-0: rgb(var(--ac-0-raw));
-    --ac-1: rgb(var(--ac-1-raw));
-    --ac-2: rgb(var(--ac-2-raw));
-
     --bg-0-raw: #{get-raw("latte", "crust")};
     --bg-1-raw: #{get-raw("latte", "mantle")};
     --bg-2-raw: #{get-raw("latte", "base")};
@@ -194,8 +180,6 @@ a {
     --ac-0-raw: 129, 120, 238;
     --ac-1-raw: #{get-raw("latte", "lavender")};
     --ac-2-raw: #{get-raw("latte", "mauve")};
-
-    --link: var(--blue);
 
     --rosewater: #{map-get(map-get(catppuccin.$palette, "latte"), "rosewater")};
     --flamingo: #{map-get(map-get(catppuccin.$palette, "latte"), "flamingo")};
