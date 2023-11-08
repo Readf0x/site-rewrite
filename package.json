@@ -27,6 +27,7 @@
     "prettier-plugin-svelte": "^2.10.1",
     "prismjs": "^1.29.0",
     "sass": "^1.69.5",
+    "shiki": "^0.14.5",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.3",
     "tslib": "^2.4.1",
