@@ -63,8 +63,9 @@
 				}
 			}
 			.meta-date {
-				font-size: 1.25vw;
+				font-size: 1.6vw;
 				margin-bottom: .5vw;
+				text-shadow: 0 0 .25em var(--tx-0);
 				@media (max-width: 650px) {
 					font-size: 8vw;
 					margin-top: .5vw;
