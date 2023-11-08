@@ -48,19 +48,27 @@
 			align-items: flex-end;
 			justify-content: space-between;
 			flex-grow: 1;
+			@media (max-width: 650px) {
+				margin: 16vw 10px 0;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-end;
+			}
 			.meta-title {
 				font-size: 4vw;
 				text-shadow: 0 0 .1em var(--tx-0);
 				margin: 0;
+				@media (max-width: 650px) {
+					font-size: 15vw;
+				}
 			}
 			.meta-date {
 				font-size: 1.25vw;
 				margin-bottom: .5vw;
-			}
-		}
-		@media (max-width: 650px) {
-			.meta-title {
-				font-size: 15vw;
+				@media (max-width: 650px) {
+					font-size: 8vw;
+					margin-top: .5vw;
+				}
 			}
 		}
 	}
