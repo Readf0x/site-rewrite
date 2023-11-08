@@ -74,7 +74,7 @@ pre[class*="language-"] {
   }
   &.function,
   &.tag {
-    columns: var(--blue);
+    color: var(--blue);
   }
   &.boolean,
   &.number {
