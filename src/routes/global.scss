@@ -195,7 +195,7 @@ a {
     --ac-1-raw: #{get-raw("latte", "lavender")};
     --ac-2-raw: #{get-raw("latte", "mauve")};
 
-    --link: #{map-get(map-get(catppuccin.$palette, "latte"), "blue")};
+    --link: var(--blue);
 
     --rosewater: #{map-get(map-get(catppuccin.$palette, "latte"), "rosewater")};
     --flamingo: #{map-get(map-get(catppuccin.$palette, "latte"), "flamingo")};
