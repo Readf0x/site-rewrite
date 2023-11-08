@@ -1,4 +1,11 @@
 @use "@catppuccin/palette/scss/catppuccin";
+@use "sass:color";
+
+// https://stackoverflow.com/questions/64843734/sass-simple-function-to-convert-hex-color-into-rgb-as-a-string-without-alpha
+@function get-raw($palette, $hex) {
+  $color: map-get(map-get(catppuccin.$palette, $palette), $hex);
+  @return red($color), green($color), blue($color);
+}
 
 :root {
   --font: "VT323", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -64,21 +71,11 @@ a {
   @media (max-width: 940px) {
     padding: 0 1em;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 650px) {
     font-size: 1.4em;
   }
   h1 {
     text-shadow: 0 0 0.1em var(--tx-0);
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 0;
-      height: 3px;
-      width: 100vw;
-      border-radius: 100px;
-      background-color: var(--ov-0);
-    }
   }
   pre code {
     all: unset;
@@ -128,52 +125,38 @@ a {
     --ac-1: rgb(var(--ac-1-raw));
     --ac-2: rgb(var(--ac-2-raw));
 
-    --bg-0-raw: var(--ctp-mocha-crust-raw);
-    --bg-1-raw: var(--ctp-mocha-mantle-raw);
-    --bg-2-raw: var(--ctp-mocha-base-raw);
-    --sf-0-raw: var(--ctp-mocha-surface0-raw);
-    --sf-1-raw: var(--ctp-mocha-surface1-raw);
-    --sf-2-raw: var(--ctp-mocha-surface2-raw);
-    --ov-0-raw: var(--ctp-mocha-overlay0-raw);
-    --ov-1-raw: var(--ctp-mocha-overlay1-raw);
-    --ov-2-raw: var(--ctp-mocha-overlay2-raw);
-    --tx-0-raw: var(--ctp-mocha-subtext0-raw);
-    --tx-1-raw: var(--ctp-mocha-subtext1-raw);
-    --tx-2-raw: var(--ctp-mocha-text-raw);
+    --bg-0-raw: #{get-raw('mocha', 'crust')};
+    --bg-1-raw: #{get-raw('mocha', 'mantle')};
+    --bg-2-raw: #{get-raw('mocha', 'base')};
+    --sf-0-raw: #{get-raw('mocha', 'surface0')};
+    --sf-1-raw: #{get-raw('mocha', 'surface1')};
+    --sf-2-raw: #{get-raw('mocha', 'surface2')};
+    --ov-0-raw: #{get-raw('mocha', 'overlay0')};
+    --ov-1-raw: #{get-raw('mocha', 'overlay1')};
+    --ov-2-raw: #{get-raw('mocha', 'overlay2')};
+    --tx-0-raw: #{get-raw('mocha', 'subtext0')};
+    --tx-1-raw: #{get-raw('mocha', 'subtext1')};
+    --tx-2-raw: #{get-raw('mocha', 'text')};
     --ac-0-raw: 129, 120, 238;
-    --ac-1-raw: var(--ctp-mocha-lavender-raw);
-    --ac-2-raw: var(--ctp-mocha-mauve-raw);
+    --ac-1-raw: #{get-raw('mocha', 'lavender')};
+    --ac-2-raw: #{get-raw('mocha', 'mauve')};
 
-    --link: var(--ctp-mocha-blue);
+    --link: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'blue')};
 
-    --rosewater: var(--ctp-mocha-rosewater);
-    --rosewater-raw: var(--ctp-mocha-rosewater-raw);
-    --flamingo: var(--ctp-mocha-flamingo);
-    --flamingo-raw: var(--ctp-mocha-flamingo-raw);
-    --pink: var(--ctp-mocha-pink);
-    --pink-raw: var(--ctp-mocha-pink-raw);
-    --mauve: var(--ctp-mocha-mauve);
-    --mauve-raw: var(--ctp-mocha-mauve-raw);
-    --red: var(--ctp-mocha-red);
-    --red-raw: var(--ctp-mocha-red-raw);
-    --maroon: var(--ctp-mocha-maroon);
-    --maroon-raw: var(--ctp-mocha-maroon-raw);
-    --peach: var(--ctp-mocha-peach);
-    --peach-raw: var(--ctp-mocha-peach-raw);
-    --yellow: var(--ctp-mocha-yellow);
-    --yellow-raw: var(--ctp-mocha-yellow-raw);
-    --green: var(--ctp-mocha-green);
-    --green-raw: var(--ctp-mocha-green-raw);
-    --teal: var(--ctp-mocha-teal);
-    --teal-raw: var(--ctp-mocha-teal-raw);
-    --sky: var(--ctp-mocha-sky);
-    --sky-raw: var(--ctp-mocha-sky-raw);
-    --sapphire: var(--ctp-mocha-sapphire);
-    --sapphire-raw: var(--ctp-mocha-sapphire-raw);
-    --blue: var(--ctp-mocha-blue);
-    --blue-raw: var(--ctp-mocha-blue-raw);
-    --lavender: var(--ctp-mocha-lavender);
-    --lavender-raw: var(--ctp-mocha-lavender-raw);
+    --rosewater: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'rosewater')};
+    --flamingo: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'flamingo')};
+    --pink: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'pink')};
+    --mauve: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'mauve')};
+    --red: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'red')};
+    --maroon: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'maroon')};
+    --peach: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'peach')};
+    --yellow: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'yellow')};
+    --green: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'green')};
+    --teal: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'teal')};
+    --sky: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'sky')};
+    --sapphire: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'sapphire')};
+    --blue: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'blue')};
+    --lavender: #{map-get(map-get(catppuccin.$palette, 'mocha'), 'lavender')};
   }
 }
 
@@ -195,51 +178,37 @@ a {
     --ac-1: rgb(var(--ac-1-raw));
     --ac-2: rgb(var(--ac-2-raw));
 
-    --bg-0-raw: var(--ctp-latte-crust-raw);
-    --bg-1-raw: var(--ctp-latte-mantle-raw);
-    --bg-2-raw: var(--ctp-latte-base-raw);
-    --sf-0-raw: var(--ctp-latte-surface0-raw);
-    --sf-1-raw: var(--ctp-latte-surface1-raw);
-    --sf-2-raw: var(--ctp-latte-surface2-raw);
-    --ov-0-raw: var(--ctp-latte-overlay0-raw);
-    --ov-1-raw: var(--ctp-latte-overlay1-raw);
-    --ov-2-raw: var(--ctp-latte-overlay2-raw);
-    --tx-0-raw: var(--ctp-latte-subtext0-raw);
-    --tx-1-raw: var(--ctp-latte-subtext1-raw);
-    --tx-2-raw: var(--ctp-latte-text-raw);
+    --bg-0-raw: #{get-raw('latte', 'crust')};
+    --bg-1-raw: #{get-raw('latte', 'mantle')};
+    --bg-2-raw: #{get-raw('latte', 'base')};
+    --sf-0-raw: #{get-raw('latte', 'surface0')};
+    --sf-1-raw: #{get-raw('latte', 'surface1')};
+    --sf-2-raw: #{get-raw('latte', 'surface2')};
+    --ov-0-raw: #{get-raw('latte', 'overlay0')};
+    --ov-1-raw: #{get-raw('latte', 'overlay1')};
+    --ov-2-raw: #{get-raw('latte', 'overlay2')};
+    --tx-0-raw: #{get-raw('latte', 'subtext0')};
+    --tx-1-raw: #{get-raw('latte', 'subtext1')};
+    --tx-2-raw: #{get-raw('latte', 'text')};
     --ac-0-raw: 129, 120, 238;
-    --ac-1-raw: var(--ctp-latte-lavender-raw);
-    --ac-2-raw: var(--ctp-latte-mauve-raw);
+    --ac-1-raw: #{get-raw('latte', 'lavender')};
+    --ac-2-raw: #{get-raw('latte', 'mauve')};
 
-    --link: var(--ctp-latte-blue);
+    --link: #{map-get(map-get(catppuccin.$palette, 'latte'), 'blue')};
 
-    --rosewater: var(--ctp-latte-rosewater);
-    --rosewater-raw: var(--ctp-latte-rosewater-raw);
-    --flamingo: var(--ctp-latte-flamingo);
-    --flamingo-raw: var(--ctp-latte-flamingo-raw);
-    --pink: var(--ctp-latte-pink);
-    --pink-raw: var(--ctp-latte-pink-raw);
-    --mauve: var(--ctp-latte-mauve);
-    --mauve-raw: var(--ctp-latte-mauve-raw);
-    --red: var(--ctp-latte-red);
-    --red-raw: var(--ctp-latte-red-raw);
-    --maroon: var(--ctp-latte-maroon);
-    --maroon-raw: var(--ctp-latte-maroon-raw);
-    --peach: var(--ctp-latte-peach);
-    --peach-raw: var(--ctp-latte-peach-raw);
-    --yellow: var(--ctp-latte-yellow);
-    --yellow-raw: var(--ctp-latte-yellow-raw);
-    --green: var(--ctp-latte-green);
-    --green-raw: var(--ctp-latte-green-raw);
-    --teal: var(--ctp-latte-teal);
-    --teal-raw: var(--ctp-latte-teal-raw);
-    --sky: var(--ctp-latte-sky);
-    --sky-raw: var(--ctp-latte-sky-raw);
-    --sapphire: var(--ctp-latte-sapphire);
-    --sapphire-raw: var(--ctp-latte-sapphire-raw);
-    --blue: var(--ctp-latte-blue);
-    --blue-raw: var(--ctp-latte-blue-raw);
-    --lavender: var(--ctp-latte-lavender);
-    --lavender-raw: var(--ctp-latte-lavender-raw);
+    --rosewater: #{map-get(map-get(catppuccin.$palette, 'latte'), 'rosewater')};
+    --flamingo: #{map-get(map-get(catppuccin.$palette, 'latte'), 'flamingo')};
+    --pink: #{map-get(map-get(catppuccin.$palette, 'latte'), 'pink')};
+    --mauve: #{map-get(map-get(catppuccin.$palette, 'latte'), 'mauve')};
+    --red: #{map-get(map-get(catppuccin.$palette, 'latte'), 'red')};
+    --maroon: #{map-get(map-get(catppuccin.$palette, 'latte'), 'maroon')};
+    --peach: #{map-get(map-get(catppuccin.$palette, 'latte'), 'peach')};
+    --yellow: #{map-get(map-get(catppuccin.$palette, 'latte'), 'yellow')};
+    --green: #{map-get(map-get(catppuccin.$palette, 'latte'), 'green')};
+    --teal: #{map-get(map-get(catppuccin.$palette, 'latte'), 'teal')};
+    --sky: #{map-get(map-get(catppuccin.$palette, 'latte'), 'sky')};
+    --sapphire: #{map-get(map-get(catppuccin.$palette, 'latte'), 'sapphire')};
+    --blue: #{map-get(map-get(catppuccin.$palette, 'latte'), 'blue')};
+    --lavender: #{map-get(map-get(catppuccin.$palette, 'latte'), 'lavender')};
   }
 }

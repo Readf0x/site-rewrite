@@ -151,7 +151,7 @@
       align-items: center;
       gap: 20px;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       height: 15vw;
       .left {
         height: 15vw;
@@ -199,7 +199,7 @@
       @media (max-width: 1300px) {
         position: relative;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 650px) {
         display: none;
       }
     }
@@ -268,7 +268,7 @@
         text-shadow: 0 0 4px var(--ac-1);
         outline: none;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 650px) {
         font-size: 7vw;
         height: 100%;
         display: flex;
@@ -303,7 +303,7 @@
       .menu-icon {
         width: 7vw; height: 7vw;
       }
-      @media (max-width: 600px) {
+      @media (max-width: 650px) {
         display: flex;
       }
     }
