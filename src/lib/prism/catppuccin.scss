@@ -1,7 +1,7 @@
 /**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
+ * Custom catppuccin theme for prism.js
+ * Based default prism.js theme
+ * @author readf0x
  */
 
 code[class*="language-"],
@@ -58,75 +58,66 @@ pre[class*="language-"] {
   white-space: normal;
 }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: slategray;
+.token {
+  color: inherit;
+  .keyword,
+  .builtin,
+  .symbol,
+  .important,
+  .atrule {
+    color: var(--mauve);
+  }
+  .class-name,
+  .attr-name,
+  .namespace,
+  .selector {
+    color: var(--yellow);
+  }
+  .function,
+  .tag {
+    columns: var(--blue);
+  }
+  .boolean, .number {
+    color: var(--peach);
+  }
+  .string,
+  .char,
+  .regex,
+  .url,
+  .attr-value,
+  .inserted {
+    color: var(--green);
+  }
+  .operator {
+    color: var(--teal);
+  }
+  .variable,
+  .deleted {
+    color: var(--red);
+  }
+  .punctuation {
+    color: var(--tx-0);
+  }
+  .comment,
+  .prolog,
+  .doctype,
+  .cdata {
+    color: var(--ov-2);
+  }
+
+  .function,
+  .namespace,
+  .italic {
+    font-style: italic;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
 }
 
-.token.punctuation {
-  color: #999;
-}
-
-.token.namespace {
-  opacity: .7;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #905;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #690;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #9a6e3a;
-  /* This background color was intended by the author of this theme. */
-  background: hsla(0, 0%, 100%, .5);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #07a;
-}
-
-.token.function,
-.token.class-name {
-  color: #DD4A68;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #e90;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
+.language-css, .language-scss {
+  .token.property {
+    color: var(--blue);
+  }
 }
