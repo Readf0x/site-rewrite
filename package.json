@@ -34,7 +34,7 @@
     "vite": "^4.4.2"
   },
   "stackblitz": {
-    "startCommand": "npm i && npm run dev:nohost"
+    "startCommand": "npm run dev:nohost"
   },
   "type": "module"
 }
