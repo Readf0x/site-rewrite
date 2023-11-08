@@ -1,5 +1,4 @@
 <script>
-  import "@catppuccin/palette/style";
   import "./global.scss";
   import Navbar from "$lib/components/Navbar.svelte";
   import Modal from "$lib/components/Modal.svelte";

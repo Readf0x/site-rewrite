@@ -53,8 +53,12 @@
       align-items: flex-end;
       justify-content: space-between;
       flex-grow: 1;
+      @media (max-width: 940px) {
+        margin-left: 1em;
+        margin-right: 1em;
+      }
       @media (max-width: 650px) {
-        margin: 16vw 10px 0;
+        margin-top: 16vw;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-end;

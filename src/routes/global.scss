@@ -78,8 +78,16 @@ a {
   h1 {
     text-shadow: 0 0 0.1em var(--tx-0);
   }
-  pre code {
-    all: unset;
+  .code-wrapper {
+    overflow: auto;
+    pre {
+      background-color: #181825 !important;
+      width: fit-content;
+      margin: 0;
+      code {
+        all: unset;
+      }
+    }
   }
 }
 

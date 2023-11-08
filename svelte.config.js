@@ -15,7 +15,7 @@ const config = {
         highlighter: async (code, lang = 'text') => {
           const highlighter = await shiki.getHighlighter({ theme: JSON.parse(readFileSync("./src/lib/shiki/mocha.json")) })
           const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
-          return `{@html \`${html}\` }`
+          return `{@html \`<div class="code-wrapper">${html}<div class="code-wrapper">\` }`
         }
       },
       smartypants: true
