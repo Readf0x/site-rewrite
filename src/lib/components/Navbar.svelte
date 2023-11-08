@@ -86,7 +86,7 @@
       spellcheck="false"
     />
     <div class="search-shortcut">
-      <code>ctrl</code><code>k</code>
+      <key>ctrl</key><key>k</key>
     </div>
     <button class="search-submit">
       {@html search}

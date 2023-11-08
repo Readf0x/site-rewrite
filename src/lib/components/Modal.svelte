@@ -17,7 +17,7 @@
     <div class="modal">
       <div class="modal-slot"><p>{@html $modal}</p></div>
       <div class="bottom">
-        <span class="hint">Press <code>Esc</code> to close</span>
+        <span class="hint">Press <key>Esc</key> to close</span>
         <button on:click={() => ($modal = "")} id="close">Close</button>
       </div>
     </div>
