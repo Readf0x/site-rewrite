@@ -101,7 +101,6 @@ a {
     overflow: auto;
     border-radius: 10px;
     outline: none;
-    font-size: 20px;
     line-height: 1em;
     &::-webkit-scrollbar {
       width: 0;
@@ -111,6 +110,7 @@ a {
       background: var(--sf-2) !important;
     }
     code {
+      font-size: 14px;
       counter-reset: step;
       counter-increment: step 0;
       .line::before {
@@ -123,6 +123,22 @@ a {
         color: rgba(115,138,148,.4)
       }
     }
+  }
+  h3 + pre {
+    border-radius: 0 0 10px 10px;
+    padding-top: 0;
+  }
+  h3:has(+pre) {
+    background-color: #181825 !important;
+    margin: 0;
+    padding: 1em 1em 1px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    outline: none;
+    font-size: 14px;
+    line-height: 1em;
+    font-family: var(--font-code);
+    color: var(--tx-0);
   }
   .columns {
     display: flex;

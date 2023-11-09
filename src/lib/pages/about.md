@@ -3,8 +3,9 @@ title: About me
 allowed: true
 ---
 
+### /src/lib/utils.ts
 ```ts
-function maximumCount(nums: number[]): number {
+export function maximumCount(nums: number[]): number {
   return Math.max(
     nums.filter(e => e > 0).length,
     nums.filter(e => e < 0).length)
@@ -13,5 +14,7 @@ function maximumCount(nums: number[]): number {
 ```
 
 ```ts
+import { maximumCount } from "$lib/utils";
+
 maximumCount([-4, -2, -6, -1, 4, 6, 2, 7, 8]);
 ```
