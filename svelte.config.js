@@ -1,27 +1,30 @@
-import { vitePreprocess } from "@sveltejs/kit/vite";
-import { mdsvex, escapeSvelte } from "mdsvex";
-import { readFileSync } from "node:fs";
-import shiki from "shiki";
-import adapter from "@sveltejs/adapter-auto";
+import { vitePreprocess } from "@sveltejs/kit/vite"
+import { mdsvex, escapeSvelte } from "mdsvex"
+import { readFileSync } from "node:fs"
+import shiki from "shiki"
+import adapter from "@sveltejs/adapter-auto"
 
+
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+  extensions: [".md"],
+  highlight: {
+    highlighter: async (code, lang = "text") => {
+      const highlighter = await shiki.getHighlighter({
+        theme: JSON.parse(readFileSync("./src/lib/shiki/mocha.json"))
+      })
+      const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+      return `{@html \`${html}\` }`
+    }
+  },
+  layout: "./src/markdown.svelte"
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
   preprocess: [
-    /** @type {import('mdsvex').MdsvexOptions} */
-    mdsvex({
-      extensions: [".md"],
-      highlight: {
-        highlighter: async (code, lang = 'text') => {
-          const highlighter = await shiki.getHighlighter({ theme: JSON.parse(readFileSync("./src/lib/shiki/mocha.json")) })
-          const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
-          return `{@html \`${html}\` }`
-        }
-      },
-      smartypants: true,
-      layout: "./src/markdown.svelte"
-    }),
+    mdsvex(mdsvexOptions),
     vitePreprocess()
   ],
   kit: {
@@ -30,6 +33,6 @@ const config = {
     // See https://kit.svelte.dev/docs/adapters for more information about adapters.
     adapter: adapter()
   }
-};
+}
 
-export default config;
+export default config

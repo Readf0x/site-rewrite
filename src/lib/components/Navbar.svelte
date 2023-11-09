@@ -136,9 +136,15 @@
   >
     <div class="flyout-container">
       <a href="/" on:click={() => (flyoutEnabled = false)}>Home</a>
-      {#each posts as post}
+      {#each posts.filter((post) => post.type == "page") as post}
         <a href={post.slug} on:click={() => (flyoutEnabled = false)}>{post.title}</a>
       {/each}
+      {#if posts.filter((post) => post.type == "post").length > 0}
+        <div class="seperator"><span>Posts</span></div>
+        {#each posts.filter((post) => post.type == "post") as post}
+          <a href={post.slug} on:click={() => (flyoutEnabled = false)}>{post.title}</a>
+        {/each}
+      {/if}
     </div>
   </div>
 </div>
@@ -357,6 +363,21 @@
           text-decoration: none;
           flex-grow: 1;
           text-align: end;
+        }
+        .seperator {
+          display: flex;
+          justify-content: end;
+          background: linear-gradient(
+            var(--sf-0) 50%,
+            var(--tx-0) 0 calc(50% + 3px),
+            var(--sf-0) 0 100%
+          );
+          span {
+            position: relative;
+            text-align: end;
+            background-color: var(--sf-0);
+            padding-left: 5px;
+          }
         }
       }
       &::-webkit-scrollbar {

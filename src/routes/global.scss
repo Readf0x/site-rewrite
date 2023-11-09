@@ -96,7 +96,7 @@ a {
   pre {
     background-color: #181825 !important;
     margin: 0;
-    padding: .5em;
+    padding: 0.5em;
     margin: 0 0 1em;
     overflow: auto;
     border-radius: 10px;
@@ -117,10 +117,10 @@ a {
         content: counter(step);
         counter-increment: step;
         width: 1em;
-        margin-right: .75em;
+        margin-right: 0.75em;
         display: inline-block;
         text-align: right;
-        color: rgba(115,138,148,.4)
+        color: rgba(115, 138, 148, 0.4);
       }
     }
   }
@@ -128,7 +128,7 @@ a {
     border-radius: 0 0 10px 10px;
     padding-top: 0;
   }
-  h3:has(+pre) {
+  h3:has(+ pre) {
     background-color: #181825 !important;
     margin: 0;
     padding: 1em 1em 1px;

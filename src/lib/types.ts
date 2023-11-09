@@ -1,9 +1,7 @@
-export type Categories = "sveltekit" | "svelte";
-
 export type Post = {
-  title: string;
-  slug: string;
-  description: string;
-  date: string;
-  allowed: boolean;
-};
+  title: string
+  slug: string
+  type: "page" | "post"
+  date: string
+  allowed: boolean
+}
