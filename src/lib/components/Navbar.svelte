@@ -364,7 +364,7 @@
         height: 0 !important;
       }
     }
-    @media (min-width: 600px) {
+    @media (min-width: 650px) {
       display: none;
     }
   }

@@ -91,6 +91,7 @@ a {
   }
   h1 {
     text-shadow: 0 0 0.1em var(--tx-0);
+    margin: 10px;
   }
   pre {
     background-color: #181825 !important;
@@ -121,6 +122,17 @@ a {
         text-align: right;
         color: rgba(115,138,148,.4)
       }
+    }
+  }
+  .columns {
+    display: flex;
+    align-items: flex-start;
+    gap: 5vw;
+    @media (max-width: 650px) {
+      display: inline-block;
+    }
+    > * {
+      flex: 1 0 0;
     }
   }
 }
