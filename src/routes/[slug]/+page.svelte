@@ -48,7 +48,7 @@
     }
     .meta {
       max-width: 900px;
-      margin: 6vw auto 0;
+      margin: 10vh auto 0;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
@@ -64,7 +64,7 @@
         justify-content: flex-end;
       }
       .meta-title {
-        font-size: 4vw;
+        font-size: 8vh;
         text-shadow: 0 0 0.1em var(--tx-0);
         margin: 0;
         @media (max-width: 650px) {
@@ -72,8 +72,8 @@
         }
       }
       .meta-date {
-        font-size: 1.6vw;
-        margin-bottom: 0.5vw;
+        font-size: 3vh;
+        margin-bottom: 1vh;
         text-shadow: 0 0 0.25em var(--tx-0);
         @media (max-width: 650px) {
           font-size: 8vw;

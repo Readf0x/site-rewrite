@@ -99,9 +99,15 @@ a {
     margin: 0 0 1em;
     overflow: auto;
     border-radius: 10px;
+    outline: none;
+    font-size: 20px;
+    line-height: 1em;
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
+    }
+    ::selection {
+      background: var(--sf-2) !important;
     }
     code {
       counter-reset: step;
