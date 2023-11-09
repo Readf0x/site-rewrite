@@ -341,9 +341,8 @@
       background: var(--sf-0);
       height: 100%;
       overflow-y: scroll;
-      width: 80vw;
-      border-radius: 30px 0 0 30px;
-      transition: right 0.4s;
+      width: 50vw;
+      transition: right 0.4s ease;
       &[data-enabled="true"] {
         right: 0;
       }
@@ -356,6 +355,8 @@
         a {
           color: inherit;
           text-decoration: none;
+          flex-grow: 1;
+          text-align: end;
         }
       }
       &::-webkit-scrollbar {
