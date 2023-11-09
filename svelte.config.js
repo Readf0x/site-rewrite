@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import shiki from "shiki";
 import adapter from "@sveltejs/adapter-auto";
 
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
@@ -18,7 +19,8 @@ const config = {
           return `{@html \`${html}\` }`
         }
       },
-      smartypants: true
+      smartypants: true,
+      layout: "./src/markdown.svelte"
     }),
     vitePreprocess()
   ],
