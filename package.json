@@ -36,7 +36,6 @@
     "shiki": "^0.14.5",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.3",
-    "to-vfile": "^8.0.0",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
     "unified": "^11.0.4",
