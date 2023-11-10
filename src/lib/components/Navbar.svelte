@@ -24,38 +24,34 @@
   }
 
   onMount(() => {
-    window.onscroll = scroll;
     scroll();
-    document.addEventListener("keydown", (ev) => {
-      if ((ev.ctrlKey && ev.key == "k") || ev.key == "/") {
-        ev.preventDefault();
-        searchElem.focus();
-      }
-    });
-    searchElem.addEventListener("keydown", (ev) => {
-      if (ev.key == "Escape") {
-        ev.preventDefault();
-        searchElem.blur();
-        searchElem.value = "";
-      }
-    });
-    document.addEventListener("click", (ev: MouseEvent) => {
-      // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
-      let targetEl = ev.target; // clicked element
-      while (targetEl) {
-        if (targetEl == flyoutButton || targetEl == flyoutMenu) {
-          // This is a click inside, does nothing, just return.
-          return;
-        }
-        // Go up the DOM
-        // @ts-ignore
-        targetEl = targetEl.parentNode;
-      }
-      // This is a click outside.
-      flyoutEnabled = false;
-    });
   });
 </script>
+
+<svelte:document
+  on:scroll={scroll}
+  on:keydown={(ev) => {
+    if ((ev.ctrlKey && ev.key == "k") || ev.key == "/") {
+      ev.preventDefault();
+      searchElem.focus();
+    }
+  }}
+  on:click={(ev) => {
+    // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
+    let targetEl = ev.target; // clicked element
+    while (targetEl) {
+      if (targetEl == flyoutButton || targetEl == flyoutMenu) {
+        // This is a click inside, does nothing, just return.
+        return;
+      }
+      // Go up the DOM
+      // @ts-ignore
+      targetEl = targetEl.parentNode;
+    }
+    // This is a click outside.
+    flyoutEnabled = false;
+  }}
+/>
 
 <nav class="navbar top">
   <div class="left">
@@ -83,6 +79,13 @@
       placeholder="Search..."
       bind:value={searchText}
       bind:this={searchElem}
+      on:keydown  ={(ev) => {
+        if (ev.key == "Escape") {
+          ev.preventDefault();
+          searchElem.blur();
+          searchElem.value = "";
+        }
+      }}
       spellcheck="false"
     />
     <div class="search-shortcut">

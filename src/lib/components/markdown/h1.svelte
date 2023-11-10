@@ -1,3 +1,5 @@
+<svelte:options immutable={true} />
+
 <script lang="ts">
   import link from "$lib/icons/link.svg?raw";
 
