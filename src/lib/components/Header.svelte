@@ -1,7 +1,7 @@
 <script lang="ts">
-  import photo from "$lib/assets/wypher2-crop.png";
+  import photo from "$lib/assets/wypher2-crop.png"
 
-  export let hello: string[];
+  export let hello: string[]
 </script>
 
 <div class="header">

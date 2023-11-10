@@ -1,55 +1,55 @@
 <script lang="ts">
-  import github from "$lib/icons/github.svg?raw";
-  import discord from "$lib/icons/discord.svg?raw";
-  import search from "$lib/icons/search.svg?raw";
-  import menu from "$lib/icons/menu.svg?raw";
-  import { onMount } from "svelte";
-  import { modal } from "../../stores";
-  import type { Post } from "$lib/types";
+  import github from "$lib/icons/github.svg?raw"
+  import discord from "$lib/icons/discord.svg?raw"
+  import search from "$lib/icons/search.svg?raw"
+  import menu from "$lib/icons/menu.svg?raw"
+  import { onMount } from "svelte"
+  import { modal } from "../../stores"
+  import type { Post } from "$lib/types"
 
-  let searchText: string;
-  let searchElem: HTMLInputElement;
-  let flyoutMenu: HTMLElement;
-  let flyoutButton: HTMLElement;
-  let flyoutEnabled: boolean = false;
+  let searchText: string
+  let searchElem: HTMLInputElement
+  let flyoutMenu: HTMLElement
+  let flyoutButton: HTMLElement
+  let flyoutEnabled: boolean = false
 
-  export let posts: Post[];
+  export let posts: Post[]
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.querySelector(".navbar")?.classList.remove("top");
+      document.querySelector(".navbar")?.classList.remove("top")
     } else {
-      document.querySelector(".navbar")?.classList.add("top");
+      document.querySelector(".navbar")?.classList.add("top")
     }
   }
 
   onMount(() => {
-    scroll();
-  });
+    scroll()
+  })
 </script>
 
 <svelte:document
   on:scroll={scroll}
   on:keydown={(ev) => {
     if ((ev.ctrlKey && ev.key == "k") || ev.key == "/") {
-      ev.preventDefault();
-      searchElem.focus();
+      ev.preventDefault()
+      searchElem.focus()
     }
   }}
   on:click={(ev) => {
     // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
-    let targetEl = ev.target; // clicked element
+    let targetEl = ev.target // clicked element
     while (targetEl) {
       if (targetEl == flyoutButton || targetEl == flyoutMenu) {
         // This is a click inside, does nothing, just return.
-        return;
+        return
       }
       // Go up the DOM
       // @ts-ignore
-      targetEl = targetEl.parentNode;
+      targetEl = targetEl.parentNode
     }
     // This is a click outside.
-    flyoutEnabled = false;
+    flyoutEnabled = false
   }}
 />
 
@@ -81,9 +81,9 @@
       bind:this={searchElem}
       on:keydown  ={(ev) => {
         if (ev.key == "Escape") {
-          ev.preventDefault();
-          searchElem.blur();
-          searchElem.value = "";
+          ev.preventDefault()
+          searchElem.blur()
+          searchElem.value = ""
         }
       }}
       spellcheck="false"

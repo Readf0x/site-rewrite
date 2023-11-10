@@ -1,10 +1,10 @@
 <script>
-  import "./global.scss";
-  import Navbar from "$lib/components/Navbar.svelte";
-  import Modal from "$lib/components/Modal.svelte";
+  import "./global.scss"
+  import Navbar from "$lib/components/Navbar.svelte"
+  import Modal from "$lib/components/Modal.svelte"
 
-  export let data;
-  let { posts } = data;
+  export let data
+  let { posts } = data
 </script>
 
 <Modal />
