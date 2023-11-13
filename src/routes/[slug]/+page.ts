@@ -1,4 +1,6 @@
-import { error } from "@sveltejs/kit" 
+// TODO: Add shiki support
+
+import { error } from "@sveltejs/kit"
 import { unified } from 'unified'
 import parse from 'remark-parse'
 import gfm from 'remark-gfm'
@@ -17,25 +19,24 @@ let runner = unified()
     .use(remark2rehype)
     .use(rehypeStringify)
 
-export const load = async({ params }) => {
+// meta should satisfy the Post type but the yaml load method returns with type unknown so fml
+export async function load({ params }): Promise<{ meta: any, content: string }> {
   try {
     const file = await import(`../../lib/pages/${params.slug}.md?raw`)
-    console.log(file)
     let tree = parser.parse(file.default)
-    console.log(tree)
-    let metadata = null
+    // init meta as null so the if statement works
+    let meta = null
     if (tree.children.length > 0 && tree.children[0].type == "yaml") {
-      metadata = yaml.load(tree.children[0].value)
-      console.log(metadata)
+      meta = yaml.load(tree.children[0].value)
+      // remove the yaml from the tree
       tree.children = tree.children.slice(1, tree.children.length)
-      //? metadata.date = dayjs(metadata.date).format("MMM D, YYYY")
+      // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
     }
     let content = runner.stringify(runner.runSync(tree))
-    console.log(content)
-    if (!metadata) {
+    if (!meta) {
       throw error(404, `Could not find ${params.slug}`)
     }
-    return { metadata, content }
+    return { meta, content }
   } catch (err) {
     throw error(500, `Unknown error trying to access ${params.slug}`)
   }

@@ -2,22 +2,22 @@
   export let data;
 </script>
 
-<!-- <svelte:head>
-  <title>{data.metadatadata.title}</title>
+<svelte:head>
+  <title>{data.meta.title}</title>
   <meta property="og:type" content="article" />
-  <meta property="og:title" content={data.metadata.title} />
-</svelte:head> -->
+  <meta property="og:title" content={data.meta.title} />
+</svelte:head>
 
-<!-- <article
+<article
   class="post"
-  data-post-id="{data.metadata.title.toLowerCase().replaceAll(' ', '-')}-{data.metadata.date}"
+  data-post-id="{data.meta.title.toLowerCase().replaceAll(' ', '-')}-{data.meta.date}"
 >
   <div class="meta-wrapper">
     <hgroup class="meta">
-      <h1 class="meta-title">{data.metadata.title}</h1>
-      {#if data.metadata.date}
+      <h1 class="meta-title">{data.meta.title}</h1>
+      {#if data.meta.date}
         <p class="meta-date">
-          {new Date(data.metadata.date).toLocaleDateString(navigator.language, {
+          {new Date(data.meta.date).toLocaleDateString(navigator.language, {
             weekday: "long",
             day: "numeric",
             month: "long",
@@ -30,11 +30,7 @@
   <div class="page-content">
     {@html data.content}
   </div>
-</article> -->
-
-<div class="page-content">
-  {@html data.content}
-</div>
+</article>
 
 <style lang="scss">
   .meta-wrapper {
