@@ -20,13 +20,14 @@ const parser = unified()
 
 const runner = unified()
     .use(remarkRehype)
-    .use(rehypeShiki, {
+    .use<[{ highlighter: import("shiki").Highlighter }], string, void>(rehypeShiki, {
       highlighter: await shiki.getHighlighter({ theme: JSON.parse(mocha) })
     })
     .use(rehypeStringify)
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
-export async function load({ params }): Promise<{ meta: unknown, content: string }> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function load({ params }): Promise<{ meta: any, content: string }> {
   try {
     const file = await import(`../../lib/pages/${params.slug}.md?raw`)
     const tree = parser.parse(file.default)
