@@ -4,26 +4,32 @@ import { error } from "@sveltejs/kit"
 import { unified } from 'unified'
 import parse from 'remark-parse'
 import gfm from 'remark-gfm'
-import remark2rehype from 'remark-rehype'
+import remarkRehype from 'remark-rehype'
+import shiki from "shiki"
+import rehypeShiki from "@leafac/rehype-shiki"
 import rehypeStringify from 'rehype-stringify'
 import frontmatter from 'remark-frontmatter'
 import yaml from 'js-yaml'
+import mocha from "./mocha.json?raw"
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
-let parser = unified()
+const parser = unified()
     .use(parse)
     .use(gfm)
     .use(frontmatter, ['yaml'])
 
-let runner = unified()
-    .use(remark2rehype)
+const runner = unified()
+    .use(remarkRehype)
+    .use(rehypeShiki, {
+      highlighter: await shiki.getHighlighter({ theme: JSON.parse(mocha) })
+    })
     .use(rehypeStringify)
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
-export async function load({ params }): Promise<{ meta: any, content: string }> {
+export async function load({ params }): Promise<{ meta: unknown, content: string }> {
   try {
     const file = await import(`../../lib/pages/${params.slug}.md?raw`)
-    let tree = parser.parse(file.default)
+    const tree = parser.parse(file.default)
     // init meta as null so the if statement works
     let meta = null
     if (tree.children.length > 0 && tree.children[0].type == "yaml") {
@@ -32,12 +38,12 @@ export async function load({ params }): Promise<{ meta: any, content: string }> 
       tree.children = tree.children.slice(1, tree.children.length)
       // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
     }
-    let content = runner.stringify(runner.runSync(tree))
+    const content = runner.stringify(runner.runSync(tree))
     if (!meta) {
       throw error(404, `Could not find ${params.slug}`)
     }
     return { meta, content }
   } catch (err) {
-    throw error(500, `Unknown error trying to access ${params.slug}`)
+    throw error(500, `Unknown error trying to access ${params.slug}: ${err}`)
   }
 }

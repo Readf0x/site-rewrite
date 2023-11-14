@@ -23,7 +23,7 @@
     on:click={() => (collapsible = !collapsible)}>&gt;</button
   >
   <div class="collapsible-content" data-enabled={collapsible}>
-    <p>Error {$page.status}: {$page.error?.message}</p>
+    <pre><code>Error {$page.status}: {$page.error?.message}</code></pre>
   </div>
 </div>
 
@@ -41,5 +41,8 @@
     &[data-enabled="true"] {
       height: fit-content;
     }
+  }
+  pre:has(code) {
+    margin-top: 10px;
   }
 </style>
