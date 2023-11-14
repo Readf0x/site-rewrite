@@ -1,5 +1,4 @@
-// ~ TODO: Add shiki support
-// TODO: Find different highlighter
+// TODO: Add line numbers
 
 import { error } from "@sveltejs/kit"
 import { unified } from 'unified'
