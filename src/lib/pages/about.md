@@ -4,8 +4,7 @@ allowed: true
 type: page
 ---
 
-### /src/lib/utils.ts
-
+###### /src/lib/utils.ts
 ```ts
 export function maximumCount(nums: number[]): number {
   return Math.max(

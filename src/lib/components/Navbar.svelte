@@ -13,8 +13,6 @@
   let flyoutButton: HTMLElement
   let flyoutEnabled: boolean = false
 
-  export let posts: Post[]
-
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       document.querySelector(".navbar")?.classList.remove("top")
@@ -139,15 +137,9 @@
   >
     <div class="flyout-container">
       <a href="/" on:click={() => (flyoutEnabled = false)}>Home</a>
-      {#each posts.filter((post) => post.type == "page") as post}
-        <a href={post.slug} on:click={() => (flyoutEnabled = false)}>{post.title}</a>
-      {/each}
-      {#if posts.filter((post) => post.type == "post").length > 0}
-        <div class="seperator"><span>Posts</span></div>
-        {#each posts.filter((post) => post.type == "post") as post}
-          <a href={post.slug} on:click={() => (flyoutEnabled = false)}>{post.title}</a>
-        {/each}
-      {/if}
+      <a href="/about" on:click={() => (flyoutEnabled = false)}>About</a>
+      <a href="/projects" on:click={() => (flyoutEnabled = false)}>Projects</a>
+      <!-- <div class="seperator"><span>Posts</span></div> -->
     </div>
   </div>
 </div>
