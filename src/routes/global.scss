@@ -96,12 +96,13 @@ a {
   pre {
     background-color: #181825 !important;
     margin: 0;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     margin: 0 0 1em;
     overflow: auto;
     border-radius: 10px;
     outline: none;
-    line-height: 1em;
+    font-size: 14px;
+    line-height: 1.5em;
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
@@ -113,15 +114,7 @@ a {
       font-size: 14px;
       counter-reset: step;
       counter-increment: step 0;
-      .line::before {
-        content: counter(step);
-        counter-increment: step;
-        width: 1em;
-        margin-right: 0.75em;
-        display: inline-block;
-        text-align: right;
-        color: rgba(115, 138, 148, 0.4);
-      }
+      background-color: transparent !important;
     }
   }
   h3 + pre {

@@ -1,22 +1,11 @@
 import { vitePreprocess } from "@sveltejs/kit/vite"
-import { mdsvex, escapeSvelte } from "mdsvex"
-import { readFileSync } from "node:fs"
-import shiki from "shiki"
+import { mdsvex } from "mdsvex"
 import adapter from "@sveltejs/adapter-auto"
 
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: [".md"],
-  highlight: {
-    highlighter: async (code, lang = "text") => {
-      const highlighter = await shiki.getHighlighter({
-        theme: JSON.parse(readFileSync("./src/lib/shiki/mocha.json"))
-      })
-      const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
-      return `{@html \`${html}\` }`
-    }
-  },
   layout: "./src/markdown.svelte"
 }
 

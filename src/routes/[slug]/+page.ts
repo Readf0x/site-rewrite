@@ -1,16 +1,16 @@
-// TODO: Add shiki support
+// ~ TODO: Add shiki support
+// TODO: Find different highlighter
 
 import { error } from "@sveltejs/kit"
 import { unified } from 'unified'
 import parse from 'remark-parse'
 import gfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
-import shiki from "shiki"
-import rehypeShiki from "@leafac/rehype-shiki"
 import rehypeStringify from 'rehype-stringify'
 import frontmatter from 'remark-frontmatter'
+import rehypeHighlight from 'rehype-highlight'
 import yaml from 'js-yaml'
-import mocha from "./mocha.json?raw"
+import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
 const parser = unified()
@@ -20,9 +20,7 @@ const parser = unified()
 
 const runner = unified()
     .use(remarkRehype)
-    .use<[{ highlighter: import("shiki").Highlighter }], string, void>(rehypeShiki, {
-      highlighter: await shiki.getHighlighter({ theme: JSON.parse(mocha) })
-    })
+    .use(rehypeHighlight)
     .use(rehypeStringify)
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
