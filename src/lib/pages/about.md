@@ -2,7 +2,14 @@
 title: About me
 ---
 
-
+```ts title="/src/lib/utils.ts"
+export function maximumCount(nums: number[]): number {
+  return Math.max(
+    nums.filter(e => e > 0).length,
+    nums.filter(e => e < 0).length)
+  )
+}
+```
 
 # Hobbies
 

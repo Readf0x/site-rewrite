@@ -14,14 +14,17 @@ import yaml from "js-yaml";
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss";
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
-const parser = unified().use(parse).use(gfm).use(frontmatter, ["yaml"]);
-
-const runner = unified()
-  .use(remarkRehype)
+const parser = unified()
+  .use(parse)
+  .use(gfm)
+  .use(frontmatter, ["yaml"]);
+  
+  const runner = unified()
+  .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeSlug)
-  .use(rehypeExternalLinks, {target: "_blank"})
+  .use(rehypeExternalLinks, { target: "_blank" })
   .use(rehypeHighlight)
-  .use(rehypeStringify);
+  .use(rehypeStringify, { allowDangerousHtml: true });
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,6 +36,7 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
     throw error(404, `Could not find ${params.slug}.md`);
   }
   const tree = parser.parse(file.default);
+  // console.log(JSON.stringify(tree) + "," + JSON.stringify(runner.runSync(tree)))
   let meta;
   if (tree.children.length > 0 && tree.children[0].type == "yaml") {
     meta = yaml.load(tree.children[0].value);
