@@ -18,10 +18,10 @@
 <Header bind:hello />
 
 <div class="page-content">
-  <div class="text-card">
+  <div class="text-cards">
     <p>
       I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
-      Community College. I plan to study computer science and become a software dev, but I don't
+      Community College. I plan to study computer science and become a software dev, though I don't
       have any specific college in mind.
     </p>
     <p>
@@ -33,13 +33,13 @@
   <h1>Hobbies</h1>
   <div class="cards">
     <Card img={linuxCard} href="/about#linux">
-      <span slot="title">Linux</span>
-    </Card>
-    <Card img={gameCard} href="/about#gaming">
-      <span slot="title">Gaming</span>
+      <slot slot="title">Linux</slot>
     </Card>
     <Card img={keyboardCard} href="/about#keyboards">
-      <span slot="title">Keyboards</span>
+      <slot slot="title">Keyboards</slot>
+    </Card>
+    <Card img={gameCard} href="/about#gaming">
+      <slot slot="title">Gaming</slot>
     </Card>
   </div>
 </div>
@@ -65,21 +65,38 @@
         flex-direction: column;
       }
     }
-    .text-card {
+    .text-cards {
       background-color: var(--sf-0);
       padding: 2px;
       border-radius: 4px;
       margin: 0.4em -0.5em;
+      display: flex;
+      gap: 2px;
+      @media (max-width: 650px) {
+        flex-direction: column;
+      }
       > * {
         background-color: var(--bg-2);
         padding: 1em 2em;
-        border-radius: 2px;
+        &:first-child {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+          @media (max-width: 650px) {
+            border-top-right-radius: 2px;
+            border-bottom-left-radius: 0;
+          }
+        }
+        &:last-child {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+          @media (max-width: 650px) {
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 2px;
+          }
+        }
         margin: 0;
         @media (max-width: 650px) {
           padding: 0.25em 0.5em;
-        }
-        & + * {
-          margin-top: 2px;
         }
       }
     }

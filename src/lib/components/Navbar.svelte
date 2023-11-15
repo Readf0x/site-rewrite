@@ -29,7 +29,7 @@
       route: "/about",
       value: [
         { value: "/about#hobbies", name: "Hobbies" },
-        { value: "/projects", name: "Projects" }
+        { value: "/about#projects", name: "Projects" }
       ]
     }
   ]
