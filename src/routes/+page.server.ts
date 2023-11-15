@@ -15,8 +15,8 @@ const hello = [
   ["Merhaba", "Turkish"],
   ["Annyeong", "Korean"],
   ["Hello", "English"]
-]
+];
 
 export const load = async () => {
-  return { hello: hello[Math.floor(Math.random() * hello.length)] }
-}
+  return { hello: hello[Math.floor(Math.random() * hello.length)] };
+};

@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let img: string = ""
-  export let href: string | undefined = undefined
+  export let img: string = "";
+  export let href: string | undefined = undefined;
 </script>
 
 <a class="card" {href}>
@@ -10,7 +10,7 @@
   {#if img}
     <!-- svelte-ignore a11y-missing-attribute -->
     <div class="img-wrapper">
-      <img src={img}>
+      <img src={img} />
     </div>
   {/if}
   <slot />
@@ -23,7 +23,7 @@
     background-color: var(--sf-0);
     display: inline-block;
     border-radius: 6px;
-    margin: 0 0 .75em;
+    margin: 0 0 0.75em;
     flex-basis: 100%;
     overflow: hidden;
     &:hover .img-wrapper img {
