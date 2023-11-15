@@ -29,13 +29,13 @@
   <!-- </div> -->
   <h1>Hobbies</h1>
   <div class="cards">
-    <Card img={linuxCard} href="/hobbies#linux">
+    <Card img={linuxCard} href="/about#linux">
       <span slot="title">Linux</span>
     </Card>
-    <Card img={gameCard} href="/hobbies#gaming">
+    <Card img={gameCard} href="/about#gaming">
       <span slot="title">Gaming</span>
     </Card>
-    <Card img={keyboardCard} href="/hobbies#keyboards">
+    <Card img={keyboardCard} href="/about#keyboards">
       <span slot="title">Keyboards</span>
     </Card>
   </div>
