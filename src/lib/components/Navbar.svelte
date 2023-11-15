@@ -23,16 +23,7 @@
           value: string
         }[]
   }
-  const links: Link[] = [
-    {
-      name: "About Me",
-      route: "/about",
-      value: [
-        { value: "/about#hobbies", name: "Hobbies" },
-        { value: "/about#projects", name: "Projects" }
-      ]
-    }
-  ]
+  export let links: Link[] = []
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -332,8 +323,14 @@
     }
     .link-group {
       position: relative;
-      &:hover .link-group-content {
-        max-height: 75vh;
+      &:hover {
+        .link-group-content {
+          max-height: 75vh;
+        }
+        .link-group-button span {
+          filter: drop-shadow(0 0 0.1em var(--ac-1));
+          transform: rotate(0deg);
+        }
       }
     }
     .link-group-button {
@@ -346,10 +343,6 @@
         filter: drop-shadow(0 0 0.1em var(--tx-2));
         transform: rotate(180deg);
         transition: transform 0.4s;
-      }
-      &:hover span {
-        filter: drop-shadow(0 0 0.1em var(--ac-1));
-        transform: rotate(0deg);
       }
     }
     .link-group-content {
@@ -365,7 +358,7 @@
       background: var(--sf-0);
       transition: max-height 1s;
       left: -0.7em;
-      width: calc(100% + 0.7em);
+      min-width: calc(100% + 0.7em);
       a {
         padding: 0.1em 0.5em;
         margin: 0;

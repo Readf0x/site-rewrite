@@ -104,6 +104,7 @@ a {
   }
   p {
     margin: 0.4em 0;
+    line-height: 1.2em;
   }
   pre {
     background-color: #181825 !important;
@@ -155,6 +156,17 @@ a {
     > * {
       flex: 1 0 0;
     }
+  }
+  sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+  }
+  sub { 
+    top: 0.4em; 
+  }
+  .data-footnote-backref {
+    color: transparent;
   }
 }
 

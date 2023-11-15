@@ -2,10 +2,22 @@
   import "./global.scss"
   import Navbar from "$lib/components/Navbar.svelte"
   import Modal from "$lib/components/Modal.svelte"
+
+  const links = [
+    {
+      name: "About Me",
+      route: "/about",
+      value: [
+        { value: "/about#hobbies", name: "Hobbies" },
+        { value: "/about#future-plans", name: "Plans" },
+        { value: "/about#projects", name: "Projects" }
+      ]
+    }
+  ]
 </script>
 
 <Modal />
-<Navbar />
+<Navbar {links}/>
 <slot />
 
 <svelte:head>
