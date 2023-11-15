@@ -11,13 +11,19 @@ import frontmatter from "remark-frontmatter"
 import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
 import rehypeExternalLinks from "rehype-external-links"
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis"
 import yaml from "js-yaml"
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
-const parser = unified().use(parse).use(gfm).use(frontmatter, ["yaml"])
+  
+  const parser = unified()
+  .use(parse)
+  .use(gfm)
+  .use(frontmatter, ["yaml"])
 
 const runner = unified()
+  .use(rehypeAccessibleEmojis)
   .use(remarkRehype)
   .use(rehypeSlug)
   .use(rehypeExternalLinks, { target: "_blank" })
