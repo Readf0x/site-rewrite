@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
-  import { modal } from "../../stores";
+  import { onDestroy, onMount } from "svelte"
+  import { modal } from "../../stores"
 
   function keyHandler(ev: KeyboardEvent) {
     if (ev.key == "Escape") {
-      ev.preventDefault();
-      $modal = "";
+      ev.preventDefault()
+      $modal = ""
     }
   }
 </script>

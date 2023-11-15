@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let img: string = "";
-  export let href: string | undefined = undefined;
+  export let img: string = ""
+  export let href: string | undefined = undefined
 </script>
 
 <a class="card" {href}>
@@ -13,7 +13,9 @@
       <img src={img} />
     </div>
   {/if}
-  <slot />
+  <div class="content">
+    <slot />
+  </div>
 </a>
 
 <style lang="scss">
@@ -25,21 +27,27 @@
     border-radius: 6px;
     margin: 0 0 0.75em;
     flex-basis: 100%;
+    padding: 2px;
     overflow: hidden;
-    &:hover .img-wrapper img {
-      transform: scale(1.25);
+    @media (min-width: 650px) {
+      &:hover .img-wrapper img {
+        transform: scale(1.25);
+      }
     }
     h1 {
       text-shadow: none;
       font-size: 1.5em;
       text-align: center;
+      margin: calc(0.2em - 2px) 0 0.2em;
+      @media (max-width: 650px) {
+        margin: 0;
+      }
     }
     .img-wrapper {
-      width: calc(100% - 4px);
+      width: 100%;
       height: 8em;
       display: block;
       border-radius: 4px;
-      margin: 0 2px 2px 2px;
       overflow: hidden;
       img {
         object-fit: cover;
@@ -47,6 +55,9 @@
         height: 100%;
         transition: transform 0.4s;
       }
+    }
+    .content {
+      background: var(--bg-2);
     }
   }
 </style>

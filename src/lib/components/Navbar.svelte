@@ -1,63 +1,72 @@
 <script lang="ts">
-  import github from "$lib/icons/github.svg?raw";
-  import discord from "$lib/icons/discord.svg?raw";
-  import search from "$lib/icons/search.svg?raw";
-  import menu from "$lib/icons/menu.svg?raw";
-  import { onMount } from "svelte";
-  import { modal } from "../../stores";
+  import github from "$lib/icons/github.svg?raw"
+  import discord from "$lib/icons/discord.svg?raw"
+  import search from "$lib/icons/search.svg?raw"
+  import menu from "$lib/icons/menu.svg?raw"
+  import downArrow from "$lib/icons/downarrow.svg?raw"
+  import { onMount } from "svelte"
+  import { modal } from "../../stores"
 
-  let searchText: string;
-  let searchElem: HTMLInputElement;
-  let flyoutMenu: HTMLElement;
-  let flyoutButton: HTMLElement;
-  let flyoutEnabled: boolean = false;
+  let searchText: string
+  let searchElem: HTMLInputElement
+  let flyoutMenu: HTMLElement
+  let flyoutButton: HTMLElement
+  let flyoutEnabled: boolean = false
 
   type Link = {
-    location: string;
-    title: string;
-  };
-
+    name: string
+    route?: string
+    value: string | {
+      name: string
+      value: string
+    }[]
+  }
   const links: Link[] = [
-    { location: "/about", title: "About Me" },
-    { location: "/projects", title: "Projects" },
-    { location: "/hobbies", title: "Hobbies" }
-  ];
+    {
+      name: "About Me",
+      route: "/about",
+      value: [
+        { value: "/about#hobbies", name: "Hobbies" },
+        { value: "/projects", name: "Projects" }
+      ]
+    }
+  ]
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.querySelector(".navbar")?.classList.remove("top");
+      document.querySelector(".navbar")?.classList.remove("top")
     } else {
-      document.querySelector(".navbar")?.classList.add("top");
+      document.querySelector(".navbar")?.classList.add("top")
     }
   }
 
   onMount(() => {
-    scroll();
-  });
+    scroll()
+  })
 </script>
 
 <svelte:document
   on:scroll={scroll}
   on:keydown={(ev) => {
     if ((ev.ctrlKey && ev.key == "k") || ev.key == "/") {
-      ev.preventDefault();
-      searchElem.focus();
+      ev.preventDefault()
+      searchElem.focus()
     }
   }}
   on:click={(ev) => {
     // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
-    let targetEl = ev.target; // clicked element
+    let targetEl = ev.target // clicked element
     while (targetEl) {
       if (targetEl == flyoutButton || targetEl == flyoutMenu) {
         // This is a click inside, does nothing, just return.
-        return;
+        return
       }
       // Go up the DOM
       // @ts-ignore
-      targetEl = targetEl.parentNode;
+      targetEl = targetEl.parentNode
     }
     // This is a click outside.
-    flyoutEnabled = false;
+    flyoutEnabled = false
   }}
 />
 
@@ -89,9 +98,9 @@
       bind:this={searchElem}
       on:keydown={(ev) => {
         if (ev.key == "Escape") {
-          ev.preventDefault();
-          searchElem.blur();
-          searchElem.value = "";
+          ev.preventDefault()
+          searchElem.blur()
+          searchElem.value = ""
         }
       }}
       spellcheck="false"
@@ -117,7 +126,20 @@
   </div>
   <div class="right">
     {#each links as link}
-      <a href={link.location}>{link.title}</a>
+      {#if typeof link.value == "string"}
+        <a href={link.value}>{link.name}</a>
+      {:else if Array.isArray(link.value)}
+        <div class="link-group">
+          <a class="link-group-button" href={link.route}
+            >{link.name}<span>{@html downArrow}</span></a
+          >
+          <div class="link-group-content">
+            {#each link.value as groupItem}
+              <a href={groupItem.value}>{groupItem.name}</a>
+            {/each}
+          </div>
+        </div>
+      {/if}
     {/each}
     <a href="https://github.com/readf0x" class="icon">
       {@html github}
@@ -147,10 +169,16 @@
     bind:this={flyoutMenu}
   >
     <div class="flyout-container">
-      <a href="/" on:click={() => (flyoutEnabled = false)}>Home</a>
-      <a href="/about" on:click={() => (flyoutEnabled = false)}>About</a>
-      <a href="/projects" on:click={() => (flyoutEnabled = false)}>Projects</a>
-      <!-- <div class="seperator"><span>Posts</span></div> -->
+      {#each links as link}
+        {#if typeof link.value == "string"}
+          <a href={link.value} on:click={() => (flyoutEnabled = false)}>{link.name}</a>
+        {:else}
+          <div class="seperator"><span>{link.name}</span></div>
+          {#each link.value as groupItem}
+            <a href={groupItem.value} on:click={() => (flyoutEnabled = false)}>{groupItem.name}</a>
+          {/each}
+        {/if}
+      {/each}
     </div>
   </div>
 </div>
@@ -300,6 +328,53 @@
         align-items: center;
       }
     }
+    .link-group {
+      position: relative;
+      &:hover .link-group-content {
+        max-height: 75vh;
+      }
+    }
+    .link-group-button {
+      display: flex;
+      align-items: center;
+      span {
+        display: flex;
+        height: fit-content;
+        width: fit-content;
+        filter: drop-shadow(0 0 0.1em var(--tx-2));
+        transform: rotate(180deg);
+        transition: transform 0.4s;
+      }
+      &:hover span {
+        filter: drop-shadow(0 0 0.1em var(--ac-1));
+        transform: rotate(0deg);
+      }
+    }
+    .link-group-content {
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      // gap: .4em;
+      margin-top: 0.1em;
+      overflow: hidden;
+      max-height: 0px;
+      height: fit-content;
+      border-radius: 4px;
+      background: var(--sf-0);
+      transition: max-height 1s;
+      left: -0.7em;
+      width: calc(100% + 0.7em);
+      a {
+        padding: 0.1em 0.5em;
+        margin: 0;
+        &:first-of-type {
+          padding-top: 0.2em;
+        }
+        &:last-of-type {
+          padding-bottom: 0.2em;
+        }
+      }
+    }
     .icon {
       display: flex;
       height: fit-content;
@@ -370,21 +445,21 @@
           flex-grow: 1;
           text-align: end;
         }
-        // .seperator {
-        //   display: flex;
-        //   justify-content: end;
-        //   background: linear-gradient(
-        //     var(--sf-0) 50%,
-        //     var(--tx-0) 0 calc(50% + 3px),
-        //     var(--sf-0) 0 100%
-        //   );
-        //   span {
-        //     position: relative;
-        //     text-align: end;
-        //     background-color: var(--sf-0);
-        //     padding-left: 5px;
-        //   }
-        // }
+        .seperator {
+          display: flex;
+          justify-content: center;
+          background: linear-gradient(
+            var(--sf-0) 50%,
+            var(--tx-0) 0 calc(50% + 3px),
+            var(--sf-0) 0 100%
+          );
+          span {
+            position: relative;
+            text-align: center;
+            background-color: var(--sf-0);
+            padding: 0 5px;
+          }
+        }
       }
       &::-webkit-scrollbar {
         width: 0 !important;
