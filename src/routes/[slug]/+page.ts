@@ -19,7 +19,7 @@ const parser = unified().use(parse).use(gfm).use(frontmatter, ["yaml"]);
 const runner = unified()
   .use(remarkRehype)
   .use(rehypeSlug)
-  .use(rehypeExternalLinks)
+  .use(rehypeExternalLinks, {target: "_blank"})
   .use(rehypeHighlight)
   .use(rehypeStringify);
 
