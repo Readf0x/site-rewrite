@@ -21,10 +21,14 @@
   <div class="text-card">
     <p>
       I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
-      Community College. I plan to study computer science and become a software dev, but I don't have
-      any specific college in mind.
+      Community College. I plan to study computer science and become a software dev, but I don't
+      have any specific college in mind.
     </p>
-    <p>I've lived in Mississippi my whole life, but I plan to move out of the US eventually. Ideally I'd like to live in a more socialist country like Norway or The Netherlands, but for now I'm still in the US of A.</p>
+    <p>
+      I've lived in Mississippi my whole life, but I plan to move out of the US eventually. Ideally
+      I'd like to live in a more socialist country like Norway or The Netherlands, but for now I'm
+      still in the US of A.
+    </p>
   </div>
   <h1>Hobbies</h1>
   <div class="cards">
@@ -65,7 +69,7 @@
       background-color: var(--sf-0);
       padding: 2px;
       border-radius: 4px;
-      margin: 0.4em -.5em;
+      margin: 0.4em -0.5em;
       > * {
         background-color: var(--bg-2);
         padding: 1em 2em;

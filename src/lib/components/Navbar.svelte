@@ -16,10 +16,12 @@
   type Link = {
     name: string
     route?: string
-    value: string | {
-      name: string
-      value: string
-    }[]
+    value:
+      | string
+      | {
+          name: string
+          value: string
+        }[]
   }
   const links: Link[] = [
     {
