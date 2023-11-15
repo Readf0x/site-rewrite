@@ -8,6 +8,8 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import frontmatter from 'remark-frontmatter'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
+import rehypeExternalLinks from 'rehype-external-links'
 import yaml from 'js-yaml'
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
 
@@ -19,29 +21,30 @@ const parser = unified()
 
 const runner = unified()
     .use(remarkRehype)
+    .use(rehypeSlug)
+    .use(rehypeExternalLinks)
     .use(rehypeHighlight)
     .use(rehypeStringify)
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function load({ params }): Promise<{ meta: any, content: string }> {
+  let file;
   try {
-    const file = await import(`../../lib/pages/${params.slug}.md?raw`)
-    const tree = parser.parse(file.default)
-    // init meta as null so the if statement works
-    let meta = null
-    if (tree.children.length > 0 && tree.children[0].type == "yaml") {
-      meta = yaml.load(tree.children[0].value)
-      // remove the yaml from the tree
-      tree.children = tree.children.slice(1, tree.children.length)
-      // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
-    }
-    const content = runner.stringify(runner.runSync(tree))
-    if (!meta) {
-      throw error(404, `Could not find ${params.slug}`)
-    }
-    return { meta, content }
+    file = await import(`../../lib/pages/${params.slug}.md?raw`)
   } catch (err) {
-    throw error(500, `Unknown error trying to access ${params.slug}: ${err}`)
+    throw error(404, `Could not find ${params.slug}.md`)
   }
+  const tree = parser.parse(file.default)
+  let meta
+  if (tree.children.length > 0 && tree.children[0].type == "yaml") {
+    meta = yaml.load(tree.children[0].value)
+    // remove the yaml from the tree
+    tree.children = tree.children.slice(1, tree.children.length)
+    // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
+  } else {
+    throw error(511, `${params.slug}.md lacks meta config`)
+  }
+  const content = runner.stringify(runner.runSync(tree))
+  return { meta, content }
 }

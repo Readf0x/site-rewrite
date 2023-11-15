@@ -5,13 +5,23 @@
   import menu from "$lib/icons/menu.svg?raw"
   import { onMount } from "svelte"
   import { modal } from "../../stores"
-  import type { Post } from "$lib/types"
 
   let searchText: string
   let searchElem: HTMLInputElement
   let flyoutMenu: HTMLElement
   let flyoutButton: HTMLElement
   let flyoutEnabled: boolean = false
+
+  type Link = {
+    location: string
+    title: string
+  }
+
+  const links: Link[] = [
+    { location: "/about", title: "About Me" },
+    { location: "/projects", title: "Projects" },
+    { location: "/hobbies", title: "Hobbies" }
+  ]
 
   function scroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -106,8 +116,9 @@
     </svg>
   </div>
   <div class="right">
-    <a href="/about">About Me</a>
-    <a href="/projects">Projects</a>
+    {#each links as link}
+      <a href={link.location}>{link.title}</a>
+    {/each}
     <a href="https://github.com/readf0x" class="icon">
       {@html github}
     </a>
@@ -359,21 +370,21 @@
           flex-grow: 1;
           text-align: end;
         }
-        .seperator {
-          display: flex;
-          justify-content: end;
-          background: linear-gradient(
-            var(--sf-0) 50%,
-            var(--tx-0) 0 calc(50% + 3px),
-            var(--sf-0) 0 100%
-          );
-          span {
-            position: relative;
-            text-align: end;
-            background-color: var(--sf-0);
-            padding-left: 5px;
-          }
-        }
+        // .seperator {
+        //   display: flex;
+        //   justify-content: end;
+        //   background: linear-gradient(
+        //     var(--sf-0) 50%,
+        //     var(--tx-0) 0 calc(50% + 3px),
+        //     var(--sf-0) 0 100%
+        //   );
+        //   span {
+        //     position: relative;
+        //     text-align: end;
+        //     background-color: var(--sf-0);
+        //     padding-left: 5px;
+        //   }
+        // }
       }
       &::-webkit-scrollbar {
         width: 0 !important;

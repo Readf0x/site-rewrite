@@ -1,7 +1,5 @@
 ---
 title: About me
-allowed: true
-type: page
 ---
 
 ###### /src/lib/utils.ts

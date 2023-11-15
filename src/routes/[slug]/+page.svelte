@@ -34,7 +34,6 @@
 
 <style lang="scss">
   .meta-wrapper {
-    width: 100vw;
     display: flex;
     margin: -50px 0 1vw;
     background: radial-gradient(
