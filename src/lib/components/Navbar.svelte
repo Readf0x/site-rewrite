@@ -102,9 +102,6 @@
     <div class="search-shortcut">
       <key>ctrl</key><key>k</key>
     </div>
-    <button class="search-submit">
-      {@html search}
-    </button>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="5"
@@ -117,6 +114,11 @@
         d="M2.28609 5.71523L0 5.72205e-06V30L2.28609 24.2848C4.6702 18.3245 4.6702 11.6755 2.28609 5.71523Z"
       />
     </svg>
+    <div class="search-results">
+      {#each links as link}
+        <a href={typeof link.value == "string" ? link.value : link.route}>{link.name}</a>
+      {/each}
+    </div>
   </div>
   <div class="right">
     {#each links as link}
@@ -219,9 +221,8 @@
         .search-input {
           padding-left: 10px;
         }
-        .search-submit {
+        .search-results {
           display: flex;
-          opacity: 1;
         }
       }
       svg:last-of-type,
@@ -249,6 +250,7 @@
       flex-grow: 1;
       padding-left: 32px;
       transition: 0.4s;
+      z-index: 10;
       &::placeholder {
         color: var(--tx-2);
         user-select: none;
@@ -263,6 +265,7 @@
       padding: 0 5px;
       transition: 0.4s;
       pointer-events: none;
+      z-index: 11;
     }
     .search-shortcut {
       position: absolute;
@@ -274,16 +277,24 @@
       user-select: none;
       pointer-events: none;
       transition: 0.4s;
+      z-index: 11;
     }
-    .search-submit {
+    .search-results {
+      position: absolute;
+      width: calc(100% - 2px);
+      top: 50%;
+      left: 1px;
       background: var(--sf-0);
-      margin: 0;
-      display: flex;
-      align-items: center;
-      padding: 0 5px;
+      padding: 15px 15px 5px;
+      box-sizing: border-box;
+      border-radius: 0 0 6px 6px;
       display: none;
-      opacity: 0;
-      transition: 0.4s;
+      gap: 2px;
+      flex-direction: column;
+      a {
+        text-shadow: none;
+        text-transform: none;
+      }
     }
     a,
     button {
