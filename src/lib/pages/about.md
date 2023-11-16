@@ -13,7 +13,11 @@ export function maximumCount(nums: number[]): number {
 
 # Personal Statement
 
-I've always been interested in computers,
+I've always been interested in computers, when other kids had an Xbox or a PlayStation I had a PC. As I got older, I began to learn more and more about my computer, how it works, and what I can do with it. I think my intro to programming was when they had us use some very simple block-based programming language to make basic games. I had so much fun making things there, I would often be on that site when I should've been doing schoolwork.
+
+Eventually I saw a video from a Russian YouTuber I started watching about how to use HTML. I started making all kinds of things in the browser, though they didn't look very good because I was too scared to use CSS or JavaScript. Little did I know that the `style="..."` attribute was actually CSS... Eventually I took the plunge and started learning Python. I had a very basic Python project that comprised of nothing but if statements and string additions. It was terrible, but that was my intro to actual programming.
+
+Now, I know JavaScript, I'm learning TypeScript & Rust, and I'm extremely proficient at CSS. I know multiple front-end libraries, and I'm trying to move away from the browser. (And I haven't even graduated high school yet!) I want to work in programming, because it's something I love doing.
 
 # Future Plans
 
@@ -29,11 +33,12 @@ Eventually, I decided to jump in the deep end and just install regular Arch Linu
 
 ## Keyboards
 
-I don't really remember what got me into custom mechanical keyboards, but I can tell you that I really became interested when I found the [Glarses YouTube channel](https://www.youtube.com/@Glarses). Glarses is really more of a comedy YouTuber who's content is keyboard related[^1]. The hobby is really expensive, so I've only built one board, and I would've done it way differently knowing what I do now. My current board is a GMMK[^2] TKL[^3] with [alpaca switches](https://www.primekb.com/products/alpaca-linears) and typewriter keycaps. I could've gotten a way better board for the same price, but I didn't know what I was doing at the time.
+I don't really remember what got me into custom mechanical keyboards, but I can tell you that I really became interested when I found the [Glarses YouTube channel](https://www.youtube.com/@Glarses). Glarses is really more of a comedy YouTuber who's content is keyboard related[^1]. The hobby is really expensive, so I've only built one board, and I would've done it way differently knowing what I do now. My current board is a GMMK[^2] TKL[^3] with alpaca switches[^4] and typewriter keycaps. I could've gotten a way better board for the same price, but I didn't know what I was doing at the time.
 
 [^1]: See [reasonably sized keyboard](https://www.youtube.com/watch?v=L_8GKPOQ5r4)
 [^2]: Glorious Modular Mechanical Keyboard. Yes that is seriously the name of this thing.
 [^3]: Short for ten-keyless, it just means the keyboard doesn't have a numpad.
+[^4]: A cheap, but high-quality linear switch
 
 ## Gaming
 

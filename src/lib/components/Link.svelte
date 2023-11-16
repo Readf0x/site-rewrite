@@ -1,6 +1,8 @@
 <script lang="ts">
   import downArrow from "$lib/icons/downarrow.svg?raw"
 
+  let dropdown: boolean = false
+
   type Link = {
     name: string
     route?: string
@@ -17,13 +19,14 @@
 {#if typeof link.value == "string"}
   <a href={link.value}>{link.name}</a>
 {:else if Array.isArray(link.value)}
-  <div class="link-group">
-    <a class="link-group-button" href={link.route}
-      >{link.name}<span>{@html downArrow}</span></a
-    >
+  <div class="link-group" data-enabled={dropdown}>
+    <span class="link-group-button">
+      <a href={link.route} on:click={() => dropdown = false}>{link.name}</a>
+      <button on:click={() => dropdown = !dropdown}>{@html downArrow}</button>
+    </span>
     <div class="link-group-content">
       {#each link.value as groupItem}
-        <a href={groupItem.value}>{groupItem.name}</a>
+        <a href={groupItem.value} on:click={() => dropdown = false}>{groupItem.name}</a>
       {/each}
     </div>
   </div>
@@ -55,11 +58,11 @@
   }
   .link-group {
     position: relative;
-    &:hover {
+    &[data-enabled=true] {
       .link-group-content {
         max-height: 75vh;
       }
-      .link-group-button span {
+      .link-group-button button {
         filter: drop-shadow(0 0 0.1em var(--ac-1));
         transform: rotate(0deg);
       }
@@ -68,7 +71,7 @@
   .link-group-button {
     display: flex;
     align-items: center;
-    span {
+    button {
       display: flex;
       height: fit-content;
       width: fit-content;

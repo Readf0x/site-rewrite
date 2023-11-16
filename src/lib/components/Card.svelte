@@ -4,9 +4,11 @@
 </script>
 
 <a class="card" {href}>
-  <h1>
-    <slot name="title" />
-  </h1>
+  {#if $$slots.title}
+    <h1>
+      <slot name="title" />
+    </h1>
+  {/if}
   {#if img}
     <!-- svelte-ignore a11y-missing-attribute -->
     <div class="img-wrapper">
@@ -58,6 +60,10 @@
     }
     .content {
       background: var(--bg-2);
+      border-radius: 4px;
+    }
+    :global(p) {
+      margin: 0 !important;
     }
   }
 </style>
