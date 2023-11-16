@@ -4,10 +4,9 @@ title: Qualifications
 
 # Resume
 
-<!-- 
-  TODO: Add embedded resume
-  ? pdf?
--->
+<!-- TODO: Add embedded resume -->
+<!-- ? pdf? -->
+
 
 # Achievements
 
@@ -15,10 +14,10 @@ title: Qualifications
 
 # Job Shadowing
 
-<!--
-  TODO: Add job shadowing info
-  ? Write about online job shadowing or embed journal?
--->
+
+<!-- TODO: Add job shadowing info -->
+<!-- ? Write about online job shadowing or embed journal? -->
+
 
 # Community Service
 
