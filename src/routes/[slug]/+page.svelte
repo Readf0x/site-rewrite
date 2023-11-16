@@ -21,7 +21,7 @@
             weekday: "long",
             day: "numeric",
             month: "long",
-            year: "numeric"
+            year: "numeric",
           })}
         </p>
       {/if}

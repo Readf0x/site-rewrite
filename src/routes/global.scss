@@ -172,7 +172,8 @@ a {
       flex: 1 0 0;
     }
   }
-  sup, sub {
+  sup,
+  sub {
     vertical-align: baseline;
     position: relative;
     top: -0.4em;
@@ -180,8 +181,8 @@ a {
       text-decoration: none;
     }
   }
-  sub { 
-    top: 0.4em; 
+  sub {
+    top: 0.4em;
   }
   .data-footnote-backref {
     color: transparent;

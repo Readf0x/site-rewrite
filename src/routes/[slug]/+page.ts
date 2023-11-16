@@ -15,11 +15,8 @@ import yaml from "js-yaml"
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
-  
-  const parser = unified()
-  .use(parse)
-  .use(gfm)
-  .use(frontmatter, ["yaml"])
+
+const parser = unified().use(parse).use(gfm).use(frontmatter, ["yaml"])
 
 const runner = unified()
   .use(remarkRehype)
@@ -55,19 +52,21 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
   }
   // pre-rehype tree walking
   for (let i = 0; i < tree.children.length; i++) {
-    const el = tree.children[i];
+    const el = tree.children[i]
     // check if current iteration is a code block
-    if(el.type == "code" && typeof el?.meta == "string") {
+    if (el.type == "code" && typeof el?.meta == "string") {
       const title = el.meta
       delete el.meta
       // add code title
       tree.children.splice(i, 0, {
         type: "heading",
         depth: 6,
-        children: [{
-          type: "text",
-          value: title,
-        }]
+        children: [
+          {
+            type: "text",
+            value: title,
+          },
+        ],
       })
     }
   }
@@ -75,15 +74,20 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
   tree = runner.runSync(tree)
   // post-transformer tree walking
   for (let i = 0; i < tree.children.length; i++) {
-    const el = tree.children[i];
+    const el = tree.children[i]
     // make sure current iteration is a code block
-    if (el.type == "element" && el.tagName == "pre" && el.children[0].type == "element" && el.children[0].tagName == "code") {
+    if (
+      el.type == "element" &&
+      el.tagName == "pre" &&
+      el.children[0].type == "element" &&
+      el.children[0].tagName == "code"
+    ) {
       // add code title class
       if (i > 1) {
         const prevEl = tree.children[i - 2]
         if (prevEl.type == "element" && prevEl.tagName == "h6") {
           prevEl.properties = {
-            className: [ "code-title" ]
+            className: ["code-title"],
           }
         }
       }

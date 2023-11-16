@@ -14,7 +14,7 @@ const hello = [
   ["Hallo", "German"],
   ["Merhaba", "Turkish"],
   ["Annyeong", "Korean"],
-  ["Hello", "English"]
+  ["Hello", "English"],
 ]
 
 export const load = async () => {

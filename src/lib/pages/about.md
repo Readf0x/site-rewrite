@@ -13,7 +13,7 @@ export function maximumCount(nums: number[]): number {
 
 # Personal Statement
 
-I've always been interested in computers, 
+I've always been interested in computers,
 
 # Future Plans
 

@@ -8,16 +8,16 @@
       name: "About Me",
       route: "/about",
       value: [
-        { value: "/about#hobbies", name: "Hobbies" },
+        { value: "/about#personal-statement", name: "Statement" },
         { value: "/about#future-plans", name: "Plans" },
-        { value: "/about#projects", name: "Projects" }
-      ]
-    }
+        { value: "/about#hobbies", name: "Hobbies" },
+      ],
+    },
   ]
 </script>
 
 <Modal />
-<Navbar {links}/>
+<Navbar {links} />
 <slot />
 
 <svelte:head>

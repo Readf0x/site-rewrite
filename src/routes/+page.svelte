@@ -26,7 +26,7 @@
       Community College. I plan to study computer science and become a software dev, though I don't
       have any specific college in mind.
     </p>
-    <img src={me} alt="fjf">
+    <img src={me} alt="fjf" />
   </div>
   <h1>Hobbies</h1>
   <div class="cards">
