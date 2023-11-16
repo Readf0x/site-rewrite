@@ -1,7 +1,10 @@
 <script lang="ts">
   import downArrow from "$lib/icons/downarrow.svg?raw"
+  import type { KeyboardEventHandler } from "svelte/elements"
 
   let dropdown: boolean = false
+  let linkGroup: HTMLElement;
+  let dropdownButton: HTMLButtonElement;
 
   type Link = {
     name: string
@@ -13,18 +16,44 @@
           value: string
         }[]
   }
+
   export let link: Link;
+
+  const keyboardHander = function(ev: KeyboardEvent) {
+    if (ev.key == "Escape" && dropdown) {
+      ev.preventDefault()
+      dropdown = false
+    }
+  }
 </script>
+
+<svelte:document
+  on:keydown={keyboardHander}
+  on:click={(ev) => {
+    // https://www.w3docs.com/snippets/javascript/how-to-detect-a-click-outside-an-element.html
+    let targetEl = ev.target // clicked element
+    while (targetEl) {
+      if (targetEl == linkGroup || targetEl == dropdownButton) {
+        // This is a click inside, does nothing, just return.
+        return
+      }
+      // Go up the DOM
+      // @ts-ignore
+      targetEl = targetEl.parentNode
+    }
+    // This is a click outside.
+    dropdown = false
+  }} />
 
 {#if typeof link.value == "string"}
   <a href={link.value}>{link.name}</a>
 {:else if Array.isArray(link.value)}
   <div class="link-group" data-enabled={dropdown}>
     <span class="link-group-button">
-      <a href={link.route} on:click={() => dropdown = false}>{link.name}</a>
-      <button on:click={() => dropdown = !dropdown}>{@html downArrow}</button>
+      <a href={link.route}>{link.name}</a>
+      <button on:click={() => dropdown = !dropdown} bind:this={dropdownButton}>{@html downArrow}</button>
     </span>
-    <div class="link-group-content">
+    <div class="link-group-content" bind:this={linkGroup}>
       {#each link.value as groupItem}
         <a href={groupItem.value} on:click={() => dropdown = false}>{groupItem.name}</a>
       {/each}

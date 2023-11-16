@@ -48,7 +48,7 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
     tree.children = tree.children.slice(1, tree.children.length)
     // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
   } else {
-    throw error(511, `${params.slug}.md lacks meta config`)
+    throw error(531, `${params.slug}.md lacks meta config`)
   }
   // pre-rehype tree walking
   for (let i = 0; i < tree.children.length; i++) {

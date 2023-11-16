@@ -154,7 +154,7 @@
         {#if typeof link.value == "string"}
           <a href={link.value} on:click={() => (flyoutEnabled = false)}>{link.name}</a>
         {:else}
-          <div class="seperator"><span>{link.name}</span></div>
+          <a class="seperator" href={link.route}><span>{link.name}</span></a>
           {#each link.value as groupItem}
             <a href={groupItem.value} on:click={() => (flyoutEnabled = false)}>{groupItem.name}</a>
           {/each}
@@ -230,7 +230,7 @@
           fill: var(--sf-0);
         }
       }
-      @media (max-width: 1300px) {
+      @media (max-width: 1400px) {
         position: relative;
       }
       @media (max-width: 650px) {
@@ -319,7 +319,7 @@
         color: var(--ac-1);
         filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
-      @media (max-width: 800px) {
+      @media (max-width: 1200px) {
         display: none;
       }
       &:focus {
@@ -381,7 +381,7 @@
         }
         .seperator {
           display: flex;
-          justify-content: center;
+          justify-content: end;
           background: linear-gradient(
             var(--sf-0) 50%,
             var(--tx-0) 0 calc(50% + 3px),
@@ -389,9 +389,13 @@
           );
           span {
             position: relative;
-            text-align: center;
+            text-align: end;
             background-color: var(--sf-0);
-            padding: 0 5px;
+            color: var(--link);
+            padding-left: 5px;
+          }
+          &[href] span {
+            color: inherit;
           }
         }
       }

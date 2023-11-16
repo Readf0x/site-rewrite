@@ -20,13 +20,15 @@
 <Header bind:hello />
 
 <div class="page-content">
-  <div class="border-items">
-    <p>
-      I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
-      Community College. I plan to study computer science and become a software dev, though I don't
-      have any specific college in mind.
-    </p>
-    <img src={me} alt="fjf" />
+  <div class="border-wrapper">
+    <div class="border-items">
+      <p>
+        I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
+        Community College. I plan to study computer science and become a software dev, though I don't
+        have any specific college in mind.
+      </p>
+      <img src={me} alt="fjf" />
+    </div>
   </div>
   <h1>Hobbies</h1>
   <div class="cards">
@@ -63,45 +65,39 @@
         flex-direction: column;
       }
     }
-    .border-items {
+    .border-wrapper {
       background-color: var(--sf-0);
       padding: 2px;
-      border-radius: 4px;
+      border-radius: 6px;
       margin: 0.4em -0.5em;
-      display: flex;
-      gap: 2px;
-      @media (max-width: 650px) {
-        flex-direction: column;
-      }
-      > * {
-        background-color: var(--bg-2);
-        &:first-child {
-          border-top-left-radius: 2px;
-          border-bottom-left-radius: 2px;
-          @media (max-width: 650px) {
-            border-top-right-radius: 2px;
-            border-bottom-left-radius: 0;
-          }
-        }
-        &:last-child {
-          border-top-right-radius: 2px;
-          border-bottom-right-radius: 2px;
-          @media (max-width: 650px) {
-            border-top-right-radius: 0;
-            border-bottom-left-radius: 2px;
-          }
-        }
-        margin: 0;
+      .border-items {
+        display: flex;
+        gap: 2px;
+        border-radius: 4px;
+        overflow: hidden;
         @media (max-width: 650px) {
-          padding: 0.25em 0.5em;
+          flex-direction: column;
         }
-      }
-      > img {
-        object-fit: contain;
-        height: 30vh;
-      }
-      > p {
-        padding: 1em 2em;
+        > * {
+          background-color: var(--bg-2);
+          margin: 0;
+          @media (max-width: 650px) {
+            padding: 0.25em 0.5em;
+          }
+        }
+        > img {
+          object-fit: contain;
+          width: 8em;
+          // flex-grow: 1;
+          @media (max-width: 650px) {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+          }
+        }
+        > p {
+          padding: 1em 2em;
+        }
       }
     }
   }

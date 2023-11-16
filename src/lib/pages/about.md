@@ -2,15 +2,6 @@
 title: About me
 ---
 
-```ts /src/lib/utils.ts
-export function maximumCount(nums: number[]): number {
-  return Math.max(
-    nums.filter(e => e > 0).length,
-    nums.filter(e => e < 0).length)
-  )
-}
-```
-
 # Personal Statement
 
 I've always been interested in computers, when other kids had an Xbox or a PlayStation I had a PC. As I got older, I began to learn more and more about my computer, how it works, and what I can do with it. I think my intro to programming was when they had us use some very simple block-based programming language to make basic games. I had so much fun making things there, I would often be on that site when I should've been doing schoolwork.

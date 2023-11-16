@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import "./global.scss"
   import Navbar from "$lib/components/Navbar.svelte"
   import Modal from "$lib/components/Modal.svelte"
 
-  const links = [
+  const links: Link[] = [
     {
       name: "About Me",
       route: "/about",
@@ -13,7 +13,29 @@
         { value: "/about#hobbies", name: "Hobbies" },
       ],
     },
+    {
+      name: "Credentials",
+      route: "/qualifications",
+      value: [
+        { value: "/qualifications#resume", name: "Resume" },
+        { value: "/qualifications#achievements", name: "Achievements" },
+        { value: "/qualifications#job-shadowing", name: "Job Shadowing" },
+        { value: "/qualifications#community-service", name: "Volunteering" },
+        { value: "/qualifications#transcripts", name: "Transcripts" },
+      ]
+    }
   ]
+
+  type Link = {
+    name: string
+    route?: string
+    value:
+      | string
+      | {
+          name: string
+          value: string
+        }[]
+  }
 </script>
 
 <Modal />

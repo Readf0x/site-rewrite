@@ -8,7 +8,7 @@
         return "I don't know how you got here, but this place doesn't exist."
       case 500:
         return "Whoopsie! Looks like my server code failed, sorry about that!"
-      case 511:
+      case 531:
         return "Some idiot (me) didn't configure this page correctly!"
       default:
         return `No funny message found for ${i} errors`
