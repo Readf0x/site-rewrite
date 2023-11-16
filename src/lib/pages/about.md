@@ -2,7 +2,14 @@
 title: About me
 ---
 
-asdfjh :+1:
+```ts /src/lib/utils.ts
+export function maximumCount(nums: number[]): number {
+  return Math.max(
+    nums.filter(e => e > 0).length,
+    nums.filter(e => e < 0).length)
+  )
+}
+```
 
 # Personal Statement
 
@@ -18,20 +25,16 @@ I'm on course to graduate from my high school with a distinguished academic & ca
 
 I've recently (as in a year or two ago) gotten into using Linux. I still dualboot a stripped down version of Windows 11 for VR, but other than that I only use Linux on my home PC. My journey with Linux started when my dad started using [Pop!\_OS](https://pop.system76.com) on his PC. He really enjoyed using it, and told me all the things he thought made it better than Windows. When my Windows install got borked, I decided to switch to Pop!\_OS as well.
 
-Pop was a great beginner distro, because it made things very simple for me without completely abstracting _everything_ away. I eventually needed to reinstall because I stopped using an Nvidia GPU, and I wanted to use [Arch Linux](https://archlinux.org). Arch Linux is notoriously hard to use because it's a DIY distro, so I decided to use one of the many forks of Arch, Manjaro.
-
-Big mistake, let me tell you that. Manjaro breaks _a lot_ of things. I couldn't even change the system theme. So I immediately quit using Manjaro after about 2 hours of use and found Artix. Artix is a really cool project, but it's not what I was looking for either.
-
-Since Arch's forks weren't working for me, I decided to jump in the deep end and just install regular Arch Linux. And it was surprisingly easier than I expected! It took me about a week to get my system set up in a state that I liked, and I still tinker with it constantly even now. Right now I run [Hyprland](https://hyprland.org) and things are going great! I have my workflow extremely optimized with a ton of hotkeys, and more get added all the time.
+Eventually, I decided to jump in the deep end and just install regular Arch Linux. And it was surprisingly easier than I expected! It took me about a week to get my system set up in a state that I liked, and I still tinker with it constantly even now. Right now I run [Hyprland](https://hyprland.org) and things are going great! I have my workflow extremely optimized with a ton of hotkeys, and more get added all the time.
 
 ## Keyboards
 
-I don't really remember what got me into custom mechanical keyboards, but I can tell you that I really became interested when I found the [Glarses YouTube channel](https://www.youtube.com/@Glarses). Glarses is really more of a comedy YouTuber who's content is keyboard related[^1].
+I don't really remember what got me into custom mechanical keyboards, but I can tell you that I really became interested when I found the [Glarses YouTube channel](https://www.youtube.com/@Glarses). Glarses is really more of a comedy YouTuber who's content is keyboard related[^1]. The hobby is really expensive, so I've only built one board, and I would've done it way differently knowing what I do now. My current board is a GMMK[^2] TKL[^3] with [alpaca switches](https://www.primekb.com/products/alpaca-linears) and typewriter keycaps. I could've gotten a way better board for the same price, but I didn't know what I was doing at the time.
 
 [^1]: See [reasonably sized keyboard](https://www.youtube.com/watch?v=L_8GKPOQ5r4)
+[^2]: Glorious Modular Mechanical Keyboard. Yes that is seriously the name of this thing.
+[^3]: Short for ten-keyless, it just means the keyboard doesn't have a numpad.
 
 ## Gaming
 
-I've been gaming since about age 5, when my mom gave me her old gameboy color along with Pokémon and Tetris. I played those games so much, but I never got very far. I suppose that's just how it goes. A few years after my brother was born my dad gave me his old PC along with Minecraft. I played that game to death. Every day when my brother was took a nap, around noonish I think, I would get my parents to bring down the computer so I could play. I think it was running Windows 7 or Vista? Doesn't really matter I suppose.
-
-<!-- TODO: Finish Gaming Section -->
+I've been gaming since about age 5, when my mom gave me her old gameboy color along with Pokémon and Tetris. I played those games so much, but I never got very far. I suppose that's just how it goes. A few years after my brother was born my dad gave me his old PC along with Minecraft. I played that game to death. My favorite game of all time is Portal 2, it's a real masterclass in puzzle games. The comedy in that game is golden. I recently played through a game called ULTRAKILL, and it's certainly lives up to it's place as the #9 FPS game on Steam. I've also been enjoying Battlebit, which, despite it's graphics, is one of the best FPS games I've ever played.

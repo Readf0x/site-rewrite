@@ -6,6 +6,8 @@
   import gameCard from "$lib/assets/store_home_share.jpg"
   import keyboardCard from "$lib/assets/feature-coolest-mechanical-keyboards.png"
 
+  import me from "$lib/assets/PXL_20231014_194228047.jpg"
+
   // @ts-ignore
   export let data
   let { hello } = data
@@ -18,17 +20,13 @@
 <Header bind:hello />
 
 <div class="page-content">
-  <div class="text-cards">
+  <div class="border-items">
     <p>
       I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
       Community College. I plan to study computer science and become a software dev, though I don't
       have any specific college in mind.
     </p>
-    <p>
-      I've lived in Mississippi my whole life, but I plan to move out of the US eventually. Ideally
-      I'd like to live in a more socialist country like Norway or The Netherlands, but for now I'm
-      still in the US of A.
-    </p>
+    <img src={me} alt="fjf">
   </div>
   <h1>Hobbies</h1>
   <div class="cards">
@@ -65,7 +63,7 @@
         flex-direction: column;
       }
     }
-    .text-cards {
+    .border-items {
       background-color: var(--sf-0);
       padding: 2px;
       border-radius: 4px;
@@ -77,7 +75,6 @@
       }
       > * {
         background-color: var(--bg-2);
-        padding: 1em 2em;
         &:first-child {
           border-top-left-radius: 2px;
           border-bottom-left-radius: 2px;
@@ -98,6 +95,13 @@
         @media (max-width: 650px) {
           padding: 0.25em 0.5em;
         }
+      }
+      > img {
+        object-fit: contain;
+        height: 30vh;
+      }
+      > p {
+        padding: 1em 2em;
       }
     }
   }

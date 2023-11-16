@@ -89,6 +89,9 @@ a {
   @media (max-width: 650px) {
     font-size: 1.4em;
   }
+  > * {
+    margin: 0.4em 0;
+  }
   h1 {
     text-shadow: 0 0 0.1em var(--tx-0);
     font-size: 2em;
@@ -105,6 +108,11 @@ a {
   p {
     margin: 0.4em 0;
     line-height: 1.2em;
+  }
+  section {
+    > * {
+      margin: 0.4em 0;
+    }
   }
   pre {
     background-color: #181825 !important;
@@ -130,21 +138,28 @@ a {
       background-color: transparent !important;
     }
   }
-  h6 + pre {
+  h6.code-title + pre {
     border-radius: 0 0 10px 10px;
     padding-top: 0;
   }
-  h6:has(+ pre) {
+  h6.code-title {
     background-color: #181825 !important;
     margin: 0;
-    padding: 1em 1em 1px;
+    padding: 0.5em 1em 0;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
     outline: none;
     font-size: 14px;
-    line-height: 1em;
+    line-height: 1.5em;
     font-family: var(--font-code);
     color: var(--tx-0);
+    &::selection {
+      background: var(--sf-2) !important;
+    }
+  }
+  #footnote-label {
+    text-shadow: 0 0 0.1em var(--tx-0);
+    font-size: 2em;
   }
   .columns {
     display: flex;
@@ -161,6 +176,9 @@ a {
     vertical-align: baseline;
     position: relative;
     top: -0.4em;
+    a {
+      text-decoration: none;
+    }
   }
   sub { 
     top: 0.4em; 
@@ -171,7 +189,7 @@ a {
 }
 
 ::selection {
-  background: rgba(var(--ac-0-raw), 0.75) !important;
+  background: rgba(var(--ac-0-raw), 0.75);
   text-shadow: none !important;
 }
 

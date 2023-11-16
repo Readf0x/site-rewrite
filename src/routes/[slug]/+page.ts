@@ -11,7 +11,6 @@ import frontmatter from "remark-frontmatter"
 import rehypeHighlight from "rehype-highlight"
 import rehypeSlug from "rehype-slug"
 import rehypeExternalLinks from "rehype-external-links"
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis"
 import yaml from "js-yaml"
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
 
@@ -23,7 +22,6 @@ import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
   .use(frontmatter, ["yaml"])
 
 const runner = unified()
-  .use(rehypeAccessibleEmojis)
   .use(remarkRehype)
   .use(rehypeSlug)
   .use(rehypeExternalLinks, { target: "_blank" })
@@ -55,9 +53,54 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
   } else {
     throw error(511, `${params.slug}.md lacks meta config`)
   }
+  // pre-rehype tree walking
+  for (let i = 0; i < tree.children.length; i++) {
+    const el = tree.children[i];
+    // check if current iteration is a code block
+    if(el.type == "code" && typeof el?.meta == "string") {
+      const title = el.meta
+      delete el.meta
+      // add code title
+      tree.children.splice(i, 0, {
+        type: "heading",
+        depth: 6,
+        children: [{
+          type: "text",
+          value: title,
+        }]
+      })
+    }
+  }
   let content
+  tree = runner.runSync(tree)
+  // post-transformer tree walking
+  for (let i = 0; i < tree.children.length; i++) {
+    const el = tree.children[i];
+    // make sure current iteration is a code block
+    if (el.type == "element" && el.tagName == "pre" && el.children[0].type == "element" && el.children[0].tagName == "code") {
+      // add code title class
+      if (i > 1) {
+        const prevEl = tree.children[i - 2]
+        if (prevEl.type == "element" && prevEl.tagName == "h6") {
+          prevEl.properties = {
+            className: [ "code-title" ]
+          }
+        }
+      }
+      // ~ add line numbersf
+      // const code = el.children[0]
+      // if (code.type == "element") {
+      //   for (let ii = 0; ii < code.children.length; ii++) {
+      //     const token = code.children[ii];
+      //     if(token.type == "text" && token.value.match(/\n/)) {
+      //       // TODO: Add line number code
+      //     }
+      //   }
+      // }
+    }
+  }
   try {
-    content = runner.stringify(runner.runSync(tree))
+    content = runner.stringify(tree)
   } catch (err) {
     throw error(500, `Error rendering ${params.slug}.md`)
   }
