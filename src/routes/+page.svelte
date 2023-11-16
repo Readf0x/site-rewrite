@@ -60,7 +60,10 @@
     .cards {
       display: flex;
       gap: 1%;
-      margin: 0 -2%;
+      margin: 0 -0.5em;
+      @media (max-width: calc(1200px + 1em)) {
+        margin: 0.4em 0;
+      }
       @media (max-width: 650px) {
         flex-direction: column;
       }
@@ -70,6 +73,9 @@
       padding: 2px;
       border-radius: 6px;
       margin: 0.4em -0.5em;
+      @media (max-width: calc(1200px + 1em)) {
+        margin: 0.4em 0;
+      }
       .border-items {
         display: flex;
         gap: 2px;
