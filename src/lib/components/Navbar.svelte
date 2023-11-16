@@ -19,10 +19,10 @@
     route?: string
     value:
       | string
-      | {
+      | Array<{
           name: string
           value: string
-        }[]
+        }>
   }
   export let links: Link[] = []
 

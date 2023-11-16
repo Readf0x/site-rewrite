@@ -4,7 +4,7 @@ type SearchResults = {
   query: string
   results: Array<{
     page: string
-    specifics: string
+    preview: string
   }>
 }
 
