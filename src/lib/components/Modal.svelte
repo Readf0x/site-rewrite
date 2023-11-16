@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte"
   import { modal } from "../../stores"
 
   function keyHandler(ev: KeyboardEvent) {
