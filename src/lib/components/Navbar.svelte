@@ -38,7 +38,7 @@
     scroll()
   })
 
-  let funi: number = 1;
+  let funi: number = 0;
 </script>
 
 <svelte:document
