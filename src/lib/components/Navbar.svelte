@@ -37,6 +37,8 @@
   onMount(() => {
     scroll()
   })
+
+  let funi: number = 1;
 </script>
 
 <svelte:document
@@ -63,6 +65,14 @@
     flyoutEnabled = false
   }}
 />
+
+<button id="goofy" on:click={() => {
+  if (funi < 6) {
+    funi++
+  } else {
+    funi = 1
+  }
+}} data-egg={funi}>:3&nbsp;&nbsp;&nbsp;&nbsp;</button>
 
 <nav class="navbar top">
   <div class="left">
@@ -416,6 +426,40 @@
       }
     }
     @media (min-width: 650px) {
+      display: none;
+    }
+  }
+
+  // easter egg :3
+  #goofy {
+    position: absolute;
+    z-index: 100;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    top: 15px;
+    left: 200px;
+    &[data-egg="0"] {
+      opacity: 0;
+      cursor: default;
+    }
+    &[data-egg="1"] {
+      color: var(--red)
+    }
+    &[data-egg="2"] {
+      color: var(--peach)
+    }
+    &[data-egg="3"] {
+      color: var(--yellow)
+    }
+    &[data-egg="4"] {
+      color: var(--green)
+    }
+    &[data-egg="5"] {
+      color: var(--blue)
+    }
+    &[data-egg="6"] {
+      color: var(--mauve)
+    }
+    @media (max-width: 700px) {
       display: none;
     }
   }

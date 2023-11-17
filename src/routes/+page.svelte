@@ -30,7 +30,7 @@
       <img src={me} alt="fjf" />
     </div>
   </div>
-  <h1>Hobbies</h1>
+  <h1 id="hobbies">Hobbies</h1>
   <div class="cards">
     <Card img={linuxCard} href="/about#linux">
       <slot slot="title">Linux</slot>
@@ -41,6 +41,14 @@
     <Card img={gameCard} href="/about#gaming">
       <slot slot="title">Gaming</slot>
     </Card>
+  </div>
+  <h1 id="how-this-was-made">How this was made</h1>
+  <div class="border-wrapper">
+    <div class="border-items">
+      <p class="smaller">
+        This site is using <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a>, and the actual page content is written in markdown, then parsed, transformed, and finally stringified into html using <a href="https://unifiedjs.com/" target="_blank">unified</a>, <a href="https://remark.js.org/" target="_blank">remark</a>, and <a href="https://github.com/rehypejs/rehype" target="_blank">rehype</a>. I'm using quite a few plugins, but the most important are <a href="https://www.npmjs.com/package/remark-gfm" target="_blank">remark-gfm</a>, <a href="https://www.npmjs.com/package/remark-frontmatter" target="_blank">remark-frontmatter</a>, and <a href="https://www.npmjs.com/package/rehype-slug" target="_blank">rehype-slug</a>. remark-gfm adds support for <a href="https://github.github.com/gfm/" target="_blank">GitHub flavored markdown</a>, remark-frontmatter adds support for metadata in markdown files, and rehype-slug automatically adds IDs to headers so that you can link to them, <a href="#hobbies">like this</a>! Funnily enough, this page is actually the only one not written in markdown, due to it's complexity. There's absolutely no way the cards above this section could've been created from markdown without creating a custom transformer plugin or making serious changes to the project structure. If you want to see said markdown, or anything else from this project, it's all available on <a href="https://github.com/readf0x/site-rewrite" target="_blank">GitHub</a>!
+      </p>
+    </div>
   </div>
 </div>
 
@@ -106,5 +114,8 @@
         }
       }
     }
+  }
+  p.smaller {
+    font-size: 0.8em;
   }
 </style>
