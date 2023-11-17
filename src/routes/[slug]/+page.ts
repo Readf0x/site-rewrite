@@ -21,11 +21,11 @@ import type { Page } from "$lib/types.js"
 const parser = unified().use(parse).use(gfm).use(frontmatter, ["yaml"])
 
 const runner = unified()
-  .use(remarkRehype)
+  .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeSlug)
   .use(rehypeExternalLinks, { target: "_blank" })
   .use(rehypeHighlight)
-  .use(rehypeStringify)
+  .use(rehypeStringify, { allowDangerousHtml: true })
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
 export async function load({ params }): Promise<{ meta: Page; content: string }> {

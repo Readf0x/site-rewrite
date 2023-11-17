@@ -2,11 +2,6 @@
 title: Qualifications
 ---
 
-# Resume
-
-<!-- TODO: Add embedded resume -->
-<!-- ? pdf? -->
-
 # Achievements
 
 <!-- TODO: Get list of accomplishments -->
@@ -20,6 +15,11 @@ title: Qualifications
 
 <!-- TODO: Add community service info -->
 
+# Resume
+
+<!-- TODO: Make remark iframe handler -->
+<iframe src="/resume.pdf"></iframe>
+
 # Transcript
 
-<!-- TODO: Get transcript and embed it -->
+<iframe src="/transcript.pdf"></iframe>
