@@ -4,6 +4,10 @@
   export let hello: string[]
 </script>
 
+<svelte:head>
+  <link rel="preload" as="image" href={photo} />
+</svelte:head>
+
 <div class="header">
   <p class="name">Davis<br />Forsythe</p>
   <img src={photo} alt="Big art" class="photo" />

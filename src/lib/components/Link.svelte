@@ -106,7 +106,7 @@
     position: absolute;
     flex-direction: column;
     // gap: .4em;
-    margin-top: 0.1em;
+    top: calc(50px - 0.8em);
     overflow: hidden;
     max-height: 0px;
     height: fit-content;

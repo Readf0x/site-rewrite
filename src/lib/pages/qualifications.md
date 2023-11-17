@@ -4,16 +4,19 @@ title: Qualifications
 
 # Achievements
 
-<!-- TODO: Get list of accomplishments -->
+- I'm graduating high school with a distinguished academic + career and technical degree.
+- I've been in advanced and accelerated classes my entire high school career.
+- I made a 29 on the ACT, and got gold on ACT WorkKeys.
+- I'm still in high school, but already have more what equates to more than a year of programming experience.
 
 # Job Shadowing
 
 <!-- TODO: Add job shadowing info -->
-<!-- ? Write about online job shadowing or embed journal? -->
+<iframe src="/career-journal.pdf"></iframe>
 
 # Community Service
 
-<!-- TODO: Add community service info -->
+I've volunteered at my local library multiple times! I really enjoy helping out there.
 
 # Resume
 
