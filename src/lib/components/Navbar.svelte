@@ -40,13 +40,20 @@
 
   let funi: number = 0
   let love: boolean = true
+  let tiltesasdfzcx: string
+
+  onMount(() => {
+    tiltesasdfzcx = document.title
+  })
 
   const doYouEvenLoveMeAnymoreIFeelLikeImTheTheOnlyOneWorkingForThisRelationshipYouHaventContributedAnything = function(): void {
-    if (document.visibilityState == "visible") {
+    if (funi && document.visibilityState == "visible") {
       console.log("%cYou came back! I love you so much 💖", "font-size: 2em; color: hotpink;")
       love = true
-    } else if (document.visibilityState == "hidden") {
+      document.title = tiltesasdfzcx
+    } else if (funi && document.visibilityState == "hidden") {
       love = false
+      document.title = "pls come back 🥺"
     }
   }
 </script>
@@ -76,12 +83,6 @@
   }}
   on:visibilitychange={() => doYouEvenLoveMeAnymoreIFeelLikeImTheTheOnlyOneWorkingForThisRelationshipYouHaventContributedAnything()}
 />
-
-<svelte:head>
-  {#if funi && !love}
-    <title>pls come back 🥺</title>
-  {/if}
-</svelte:head>
 
 <button id="goofy" on:click={() => {
   if (funi < 6) {
