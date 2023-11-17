@@ -68,7 +68,7 @@
   <div class="left">
     <a href="/" data-content="Davis Forsythe">Davis Forsythe</a>
   </div>
-  <div class="search">
+  <div class="search" style="display: none;">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="5"
@@ -330,9 +330,9 @@
         color: var(--ac-1);
         filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
-      @media (max-width: 1200px) {
-        display: none;
-      }
+      // @media (max-width: 1200px) {
+      //   display: none;
+      // }
       &:focus {
         filter: drop-shadow(0 0 0.1em var(--ac-1));
       }
