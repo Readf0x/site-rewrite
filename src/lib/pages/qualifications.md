@@ -6,6 +6,7 @@ title: Qualifications
 
 - I'm graduating high school with a distinguished academic + career and technical degree.
 - I've been in advanced and accelerated classes my entire high school career.
+- I'm enrolled in dual-credit courses.
 - I made a 29 on the ACT, and got gold on ACT WorkKeys.
 - I'm still in high school, but already have more what equates to more than a year of programming experience.
 

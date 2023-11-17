@@ -38,7 +38,17 @@
     scroll()
   })
 
-  let funi: number = 0;
+  let funi: number = 0
+  let love: boolean = true
+
+  const doYouEvenLoveMeAnymoreIFeelLikeImTheTheOnlyOneWorkingForThisRelationshipYouHaventContributedAnything = function(): void {
+    if (document.visibilityState == "visible") {
+      console.log("%cYou came back! I love you so much 💖", "font-size: 2em; color: hotpink;")
+      love = true
+    } else if (document.visibilityState == "hidden") {
+      love = false
+    }
+  }
 </script>
 
 <svelte:document
@@ -64,7 +74,14 @@
     // This is a click outside.
     flyoutEnabled = false
   }}
+  on:visibilitychange={() => doYouEvenLoveMeAnymoreIFeelLikeImTheTheOnlyOneWorkingForThisRelationshipYouHaventContributedAnything()}
 />
+
+<svelte:head>
+  {#if funi && !love}
+    <title>pls come back 🥺</title>
+  {/if}
+</svelte:head>
 
 <button id="goofy" on:click={() => {
   if (funi < 6) {
