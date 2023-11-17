@@ -2,7 +2,7 @@
 title: About me
 ---
 
-# Personal Statement
+# Statement
 
 I've always been interested in computers, when other kids had an Xbox or a PlayStation I had a PC. As I got older, I began to learn more and more about my computer, how it works, and what I can do with it. I think my intro to programming was when they had us use some very simple block-based programming language to make basic games. I had so much fun making things there, I would often be on that site when I should've been doing schoolwork.
 
@@ -10,7 +10,7 @@ Eventually I saw a video from a Russian YouTuber I started watching about how to
 
 Now, I know JavaScript, I'm learning TypeScript & Rust, and I'm extremely proficient at CSS. I know multiple front-end libraries, and I'm trying to move away from the browser. (And I haven't even graduated high school yet!) I want to work in programming, because it's something I love doing.
 
-# Future Plans
+# Plans
 
 I'm on course to graduate from my high school with a distinguished academic & career and technical diploma, along with various college credits. After that I'll take a few years to just live my life, work on myself, and rest. Then I'll go to college and get a bachelor's in computer science. It's possible I might get a more niche degree like software development, but it's unlikely I can get one without first getting a bachelor's degree. Everything after that is an uncertainty, I might get some software dev certificates to help me get a job, but there's not much other than that planned. My end goal is to live in a more socialist country like Norway or The Netherlands, but that's a long ways off from now.
 

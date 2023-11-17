@@ -23,9 +23,9 @@
   <div class="border-wrapper">
     <div class="border-items">
       <p>
-        I'm currently a junior at Horn Lake High School enrolled in dual credit classes with Northwest
-        Community College. I plan to study computer science and become a software dev, though I don't
-        have any specific college in mind.
+        I'm currently a junior at Horn Lake High School enrolled in dual credit classes with
+        Northwest Community College. I plan to study computer science and become a software dev,
+        though I don't have any specific college in mind.
       </p>
       <img src={me} alt="fjf" />
     </div>

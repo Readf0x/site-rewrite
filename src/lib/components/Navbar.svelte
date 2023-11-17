@@ -122,7 +122,7 @@
   </div>
   <div class="right">
     {#each links as link}
-      <Link {link}></Link>
+      <Link {link} />
     {/each}
     <a href="https://github.com/readf0x" class="icon">
       {@html github}
@@ -373,7 +373,7 @@
       background: var(--sf-0);
       height: 100%;
       overflow-y: scroll;
-      width: 50vw;
+      width: 66.6vw;
       transition: right 0.4s ease;
       &[data-enabled="true"] {
         right: 0;

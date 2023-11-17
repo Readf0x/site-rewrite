@@ -1,5 +1,6 @@
 // TODO: Add line numbers
 // TODO: Add file names
+// TODO: Create meta type
 
 import { error } from "@sveltejs/kit"
 import { unified } from "unified"
@@ -13,6 +14,7 @@ import rehypeSlug from "rehype-slug"
 import rehypeExternalLinks from "rehype-external-links"
 import yaml from "js-yaml"
 import "@catppuccin/highlightjs/sass/catppuccin-mocha.scss"
+import type { Page } from "$lib/types.js"
 
 // https://github.com/svelteland/svelte-kit-blog-demo/blob/main/src/lib/markdown.js
 
@@ -26,8 +28,7 @@ const runner = unified()
   .use(rehypeStringify)
 
 // meta should satisfy the Post type but the yaml load method returns with type unknown so fml
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function load({ params }): Promise<{ meta: any; content: string }> {
+export async function load({ params }): Promise<{ meta: Page; content: string }> {
   let file
   try {
     file = await import(`../../lib/pages/${params.slug}.md?raw`)
@@ -41,9 +42,9 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
     throw error(500, `Error parsing ${params.slug}.md`)
   }
   // console.log("[" + JSON.stringify(tree) + "," + JSON.stringify(runner.runSync(tree)) + "]")
-  let meta
+  let meta: Page
   if (tree.children.length > 0 && tree.children[0].type == "yaml") {
-    meta = yaml.load(tree.children[0].value)
+    meta = yaml.load(tree.children[0].value) as Page
     // remove the yaml from the tree
     tree.children = tree.children.slice(1, tree.children.length)
     // ? meta.date = dayjs(meta.date).format("MMM D, YYYY")
@@ -52,11 +53,11 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
   }
   // pre-rehype tree walking
   for (let i = 0; i < tree.children.length; i++) {
-    const el = tree.children[i]
+    const node = tree.children[i]
     // check if current iteration is a code block
-    if (el.type == "code" && typeof el?.meta == "string") {
-      const title = el.meta
-      delete el.meta
+    if (node.type == "code" && typeof node?.meta == "string") {
+      const title = node.meta
+      delete node.meta
       // add code title
       tree.children.splice(i, 0, {
         type: "heading",
@@ -74,13 +75,13 @@ export async function load({ params }): Promise<{ meta: any; content: string }> 
   tree = runner.runSync(tree)
   // post-transformer tree walking
   for (let i = 0; i < tree.children.length; i++) {
-    const el = tree.children[i]
+    const node = tree.children[i]
     // make sure current iteration is a code block
     if (
-      el.type == "element" &&
-      el.tagName == "pre" &&
-      el.children[0].type == "element" &&
-      el.children[0].tagName == "code"
+      node.type == "element" &&
+      node.tagName == "pre" &&
+      node.children[0].type == "element" &&
+      node.children[0].tagName == "code"
     ) {
       // add code title class
       if (i > 1) {

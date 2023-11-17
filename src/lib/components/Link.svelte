@@ -1,25 +1,14 @@
 <script lang="ts">
   import downArrow from "$lib/icons/downarrow.svg?raw"
-  import type { KeyboardEventHandler } from "svelte/elements"
+  import type { Link } from "$lib/types"
 
   let dropdown: boolean = false
-  let linkGroup: HTMLElement;
-  let dropdownButton: HTMLButtonElement;
+  let linkGroup: HTMLElement
+  let dropdownButton: HTMLButtonElement
 
-  type Link = {
-    name: string
-    route?: string
-    value:
-      | string
-      | Array<{
-          name: string
-          value: string
-        }>
-  }
+  export let link: Link
 
-  export let link: Link;
-
-  const keyboardHander = function(ev: KeyboardEvent) {
+  const keyboardHander = function (ev: KeyboardEvent) {
     if (ev.key == "Escape" && dropdown) {
       ev.preventDefault()
       dropdown = false
@@ -43,7 +32,8 @@
     }
     // This is a click outside.
     dropdown = false
-  }} />
+  }}
+/>
 
 {#if typeof link.value == "string"}
   <a href={link.value}>{link.name}</a>
@@ -51,11 +41,13 @@
   <div class="link-group" data-enabled={dropdown}>
     <span class="link-group-button">
       <a href={link.route}>{link.name}</a>
-      <button on:click={() => dropdown = !dropdown} bind:this={dropdownButton}>{@html downArrow}</button>
+      <button on:click={() => (dropdown = !dropdown)} bind:this={dropdownButton}
+        >{@html downArrow}</button
+      >
     </span>
     <div class="link-group-content" bind:this={linkGroup}>
       {#each link.value as groupItem}
-        <a href={groupItem.value} on:click={() => dropdown = false}>{groupItem.name}</a>
+        <a href={groupItem.value} on:click={() => (dropdown = false)}>{groupItem.name}</a>
       {/each}
     </div>
   </div>
@@ -87,7 +79,7 @@
   }
   .link-group {
     position: relative;
-    &[data-enabled=true] {
+    &[data-enabled="true"] {
       .link-group-content {
         max-height: 75vh;
       }
@@ -135,4 +127,3 @@
     }
   }
 </style>
-
