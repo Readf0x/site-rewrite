@@ -2,6 +2,7 @@
   import "./global.scss"
   import Navbar from "$lib/components/Navbar.svelte"
   import Modal from "$lib/components/Modal.svelte"
+  import Footer from "$lib/components/Footer.svelte";
 
   export let data
   const { links } = data
@@ -10,6 +11,7 @@
 <Modal />
 <Navbar {links} />
 <slot />
+<Footer />
 
 <svelte:head>
   <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css" />

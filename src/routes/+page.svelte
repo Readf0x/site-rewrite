@@ -53,7 +53,7 @@
 </div>
 
 <style lang="scss">
-  .page-content {
+  :global(.page-content) {
     font-size: 2em;
     max-width: 1200px;
     @media (max-width: 650px) {
