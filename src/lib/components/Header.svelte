@@ -1,5 +1,5 @@
 <script lang="ts">
-  import photo from "$lib/assets/wypher2-crop.png"
+  import photo from "$lib/assets/portrait.gif"
 
   export let hello: string[]
 </script>

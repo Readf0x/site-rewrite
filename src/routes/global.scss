@@ -195,8 +195,15 @@ a {
     width: 100%;
     min-height: 400px;
   }
-  ul {
-    list-style-image: url("$lib/icons/bullet.svg");
+  @media (prefers-color-scheme: dark) {
+    ul {
+      list-style-image: url("$lib/icons/bullet-dark.svg");
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    ul {
+      list-style-image: url("$lib/icons/bullet-light.svg");
+    }
   }
 }
 

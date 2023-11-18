@@ -1,5 +1,4 @@
 // TODO: Add line numbers
-// TODO: Add file names
 // TODO: Create meta type
 
 import { error } from "@sveltejs/kit"
