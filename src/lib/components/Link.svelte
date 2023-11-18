@@ -114,10 +114,12 @@
     background: var(--sf-0);
     transition: max-height 1s;
     left: -0.7em;
-    min-width: calc(100% + 0.7em);
+    min-width: fit-content;
+    width: calc(100% + 0.7em);
     a {
       padding: 0.1em 0.5em;
       margin: 0;
+      white-space: nowrap;
       &:first-of-type {
         padding-top: 0.2em;
       }

@@ -2,7 +2,7 @@
 title: Qualifications
 ---
 
-# Achievements
+# Accomplishments
 
 - I'm graduating high school with a distinguished academic + career and technical degree.
 - I've been in advanced and accelerated classes my entire high school career.
@@ -13,17 +13,17 @@ title: Qualifications
 # Job Shadowing
 
 <!-- TODO: Add job shadowing info -->
-<iframe src="/career-journal.pdf"></iframe>
+Sadly I was able to job shadow in person, so I completed a kind of digital job shadowing on Pathful Explore
+
+[Career Journal](https://drive.google.com/file/d/1uHHzKWf_pVt5qv10xTAHwmoIlY3c5Ql8/view?usp=sharing)
 
 # Community Service
 
 I've volunteered at my local library multiple times! I really enjoy helping out there.
 
-# Resume
+# Academic Resume
 
 <!-- TODO: Make remark iframe handler -->
-<iframe src="/resume.pdf"></iframe>
+Here's my resume:
 
-# Transcript
-
-<iframe src="/transcript.pdf"></iframe>
+[Resume](https://drive.google.com/file/d/1kXQ13UAKyJKpEDBp-cZAeNOJo8zk17l0/view?usp=sharing)
